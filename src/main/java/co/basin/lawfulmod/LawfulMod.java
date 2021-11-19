@@ -50,7 +50,7 @@ public class LawfulMod
 
         @Override
         public ItemStack makeIcon() {
-            return ItemInit.ADVANCED_EXAMPLE_ITEM.get().getDefaultInstance();
+            return ItemInit.EXAMPLE_ITEM.get().getDefaultInstance();
         }
     }
 }

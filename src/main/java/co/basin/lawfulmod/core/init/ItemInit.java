@@ -15,18 +15,18 @@ public class ItemInit {
     // Items
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item",
             () -> new Item(new Item.Properties()
-                    .tab(ItemGroup.TAB_MISC)
+                    .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<AdvancedItem> ADVANCED_EXAMPLE_ITEM = ITEMS.register("advanced_item",
             () -> new AdvancedItem(new Item.Properties()
-                    .tab(ItemGroup.TAB_MISC)
+                    .tab(LawfulMod.LAWFUL_GROUP)
                     .food(Foods.CARROT)
             ));
 
     public static final RegistryObject<BloodSoakedAxe> BLOOD_SOAKED_AXE = ITEMS.register("blood_soaked_axe",
             () -> new BloodSoakedAxe(ItemTier.NETHERITE, 3, -2.4F, (new Item.Properties())
-                    .tab(ItemGroup.TAB_COMBAT)
+                    .tab(LawfulMod.LAWFUL_GROUP)
                     .fireResistant()
             ));
 

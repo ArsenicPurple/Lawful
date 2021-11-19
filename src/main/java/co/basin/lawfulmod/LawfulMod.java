@@ -6,9 +6,9 @@ import co.basin.lawfulmod.core.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.NonNullList;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +36,7 @@ public class LawfulMod
 {
     public static final String MOD_ID = "lawful";
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final ItemGroup LAWFUL_GROUP = new LawfulGroup("lawfultab");
 
     public LawfulMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -50,5 +51,16 @@ public class LawfulMod
 
     private void setup(final FMLCommonSetupEvent event) {
 
+    }
+
+    public static class LawfulGroup extends ItemGroup {
+        public LawfulGroup(String label) {
+            super(label);
+        }
+
+        @Override
+        public ItemStack makeIcon() {
+            return ItemInit.ADVANCED_EXAMPLE_ITEM.get().getDefaultInstance();
+        }
     }
 }

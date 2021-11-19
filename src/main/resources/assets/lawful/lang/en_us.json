@@ -1,6 +1,6 @@
 {
   "item.lawful.example_item": "The Best Example Item",
-
+  
   "block.lawful.pacting_table": "Pacting Table",
 
   "title.lawful.pacting_table": "Pacting Table",
@@ -8,4 +8,6 @@
   "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
 
   "death.attack.lawful.broken_covenant": "%1$s has broken their covenant"
+
+  "itemGroup.lawfultab": "Lawful"
 }

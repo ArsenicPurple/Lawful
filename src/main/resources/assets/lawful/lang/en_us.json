@@ -2,10 +2,16 @@
   "item.lawful.example_item": "The Best Example Item",
   
   "block.lawful.pacting_table": "Pacting Table",
-
-  "title.lawful.pacting_table": "Pacting Table",
-
+  
   "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
+
+  "tooltip.lawful.mana_ingot_item": "Mana Ingot",
+
+  "block.lawful.mana_wood": "Mana Wood",
+
+  "block.lawful.mana_iron_ore": "Mana Iron Ore"
+  
+  "title.lawful.pacting_table": "Pacting Table",
 
   "death.attack.lawful.broken_covenant": "%1$s has broken their covenant"
 

@@ -29,7 +29,17 @@ public class ItemInit {
                     .tab(LawfulMod.LAWFUL_GROUP)
                     .fireResistant()
             ));
+  
+    public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot_item",
+            () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
 
+    //Block Items
+    public static final RegistryObject<BlockItem> MANA_WOOD = ITEMS.register("mana_wood",
+            () -> new BlockItem(BlockInit.MANA_WOOD.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
+
+    public static final RegistryObject<BlockItem> MANA_IRON_ORE = ITEMS.register("mana_iron_ore",
+            () -> new BlockItem(BlockInit.MANA_IRON_ORE.get(), new Item.Properties().tab(ItemGroup.TAB_MATERIALS)));
+  
     public static final RegistryObject<ConvenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
             () -> new ConvenantPaper(new Item.Properties()
                     .tab(ItemGroup.TAB_MISC)

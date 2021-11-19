@@ -1,5 +1,6 @@
 package co.basin.lawfulmod;
 
+import co.basin.lawfulmod.core.init.BlockInit;
 import co.basin.lawfulmod.core.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -32,6 +33,7 @@ public class LawfulMod
         bus.addListener(this::setup);
 
         ItemInit.ITEMS.register(bus);
+        BlockInit.BLOCKS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

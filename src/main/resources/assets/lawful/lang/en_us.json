@@ -1,5 +1,12 @@
 {
   "item.lawful.example_item": "The Best Example Item",
 
-  "tooltip.lawful.advanced_item": "[Warning] Very Advanced"
+  "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
+
+  "tooltip.lawful.mana_ingot_item": "Mana Ingot",
+
+  "block.lawful.mana_wood": "Mana Wood",
+
+  "block.lawful.mana_iron_ore": "Mana Iron Ore"
+
 }

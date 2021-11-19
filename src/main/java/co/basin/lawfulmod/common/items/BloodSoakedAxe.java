@@ -49,10 +49,10 @@ public class BloodSoakedAxe extends SwordItem {
      * @param world The world the tick is taking place in.
      * @param entity The entity that has the ticking stack.
      * @param inventorySlot The place in the inventory the stack is in.
-     * @param isHeld Whether the stack is currently in the hand.
+     * @param isSelected Whether the stack is currently in the hand.
      */
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int inventorySlot, boolean isHeld) {
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int inventorySlot, boolean isSelected) {
         if (rampage > 0 && OffsetDateTime.now().isAfter(time)) {
             if (entity instanceof PlayerEntity) {
                 ModifiableAttributeInstance modifiableattributeinstance = ((PlayerEntity)entity).getAttribute(Attributes.ATTACK_DAMAGE);
@@ -61,6 +61,6 @@ public class BloodSoakedAxe extends SwordItem {
                 }
             }
         }
-        super.inventoryTick(stack, world, entity, inventorySlot, isHeld);
+        super.inventoryTick(stack, world, entity, inventorySlot, isSelected);
     }
 }

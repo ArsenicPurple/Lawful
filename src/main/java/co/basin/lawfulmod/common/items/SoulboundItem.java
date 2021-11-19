@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.INBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
@@ -47,6 +48,10 @@ public class SoulboundItem extends Item {
                 tooltip.add(new TranslationTextComponent("tooltip.lawful.bound_to", Minecraft.getInstance().player.getName()));
             }
         }
+    }
+
+    public void setTagIsActive(ItemStack stack) {
+        ItemNBTUtil.setBoolean(stack, TAG_IS_ACTIVE, true);
     }
 
     @Override

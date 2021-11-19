@@ -48,10 +48,10 @@ public class PactingTableBlock extends Block {
     public ActionResultType use(BlockState blockState, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult result) {
         if (world.isClientSide) {
             return ActionResultType.SUCCESS;
-        } else {
-            player.openMenu(blockState.getMenuProvider(world, pos));
-            return ActionResultType.CONSUME;
         }
+
+        player.openMenu(blockState.getMenuProvider(world, pos));
+        return ActionResultType.CONSUME;
     }
 
     @Nullable

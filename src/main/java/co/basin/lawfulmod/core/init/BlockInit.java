@@ -39,4 +39,10 @@ public class BlockInit {
                     .strength(3, 10)
                     .sound(SoundType.ANCIENT_DEBRIS)
             ));
+
+    public static final RegistryObject<Block> COVENANT_RITUAL_BLOCK = BLOCKS.register("covenant_ritual",
+            () -> Block(AbstractBlock.Properties
+                    .of(Material.STONE, MaterialColor.COLOR_BLACK)
+                    .
+            ));
 }

@@ -9,11 +9,14 @@
 
   "block.lawful.mana_wood": "Mana Wood",
 
-  "block.lawful.mana_iron_ore": "Mana Iron Ore"
+  "block.lawful.mana_iron_ore": "Mana Iron Ore",
   
   "title.lawful.pacting_table": "Pacting Table",
 
-  "death.attack.lawful.broken_covenant": "%1$s has broken their covenant"
+  "death.attack.lawful.broken_covenant": "%1$s has broken their covenant",
 
-  "itemGroup.lawfultab": "Lawful"
+  "itemGroup.lawfultab": "Lawful",
+
+  "tooltip.lawful.unbound": "Bound to \u00A76Unknown",
+  "tooltip.lawful.bound_to": "Bound to \u00A76%s"
 }

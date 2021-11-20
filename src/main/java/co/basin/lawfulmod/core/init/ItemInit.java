@@ -3,7 +3,7 @@ package co.basin.lawfulmod.core.init;
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.items.AdvancedItem;
 import co.basin.lawfulmod.common.items.BloodSoakedAxe;
-import co.basin.lawfulmod.common.items.ConvenantPaper;
+import co.basin.lawfulmod.common.items.CovenantPaper;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -46,8 +46,8 @@ public class ItemInit {
                     .tab(LawfulMod.LAWFUL_GROUP)
             ));
   
-    public static final RegistryObject<ConvenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
-            () -> new ConvenantPaper(new Item.Properties()
+    public static final RegistryObject<CovenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
+            () -> new CovenantPaper(new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
             ));
 

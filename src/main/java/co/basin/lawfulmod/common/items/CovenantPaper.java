@@ -3,14 +3,9 @@ package co.basin.lawfulmod.common.items;
 import co.basin.lawfulmod.core.util.ItemNBTUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.ListNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
@@ -18,10 +13,11 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ConvenantPaper extends SoulboundItem {
+public class CovenantPaper extends SoulboundItem {
     public static final String TAG_PACT_ITEM = "pactItem";
+    private ItemStack pactItemCache = null;
 
-    public ConvenantPaper(Properties properties) {
+    public CovenantPaper(Properties properties) {
         super(properties);
     }
 
@@ -41,19 +37,33 @@ public class ConvenantPaper extends SoulboundItem {
 
         if (getIsActive(stack)) {
             if (entity instanceof PlayerEntity) {
-                if (((PlayerEntity)entity).inventory.contains(pactItem.getDefaultInstance())) {
+                if (((PlayerEntity)entity).inventory.contains(getPactItem(stack))) {
                     entity.hurt(new DamageSource("lawful.broken_covenant"), 2);
                 }
             }
         }
     }
 
+    /**
+     * Writes and ItemStack to the NBT data of another ItemStack.
+     * @param stack The ItemStack being written to.
+     * @param pactItem The ItemStack being written.
+     */
     public void setPactItem(ItemStack stack, ItemStack pactItem) {
         ItemNBTUtil.setCompound(stack, TAG_PACT_ITEM, pactItem.serializeNBT());
     }
 
+    /**
+     * Returns an ItemStack from NBT data. Caches the ItemStack after reading.
+     * @param stack The stack to load NBT from.
+     * @return {@code ItemStack} The ItemStack of the Pact.
+     */
     public ItemStack getPactItem(ItemStack stack) {
-        CompoundNBT nbt = new CompoundNBT();
-        stack.deserializeNBT(nbt);
+        if (pactItemCache != null) { return pactItemCache; }
+        CompoundNBT nbt;
+        if ((nbt = ItemNBTUtil.getCompound(stack, TAG_PACT_ITEM, true)) == null) {
+            return null;
+        }
+        return (pactItemCache = ItemStack.of(nbt));
     }
 }

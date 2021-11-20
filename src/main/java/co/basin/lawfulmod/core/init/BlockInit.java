@@ -1,6 +1,7 @@
 package co.basin.lawfulmod.core.init;
 
 import co.basin.lawfulmod.LawfulMod;
+import co.basin.lawfulmod.common.blocks.CovenantRitualBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -35,14 +36,15 @@ public class BlockInit {
                     .requiresCorrectToolForDrops()));
   
     public static final RegistryObject<Block> PACTING_TABLE_BLOCK = BLOCKS.register("pacting_table",
-            () -> new PactingTableBlock(AbstractBlock.Properties.of(Material.STONE)
+            () -> new PactingTableBlock(AbstractBlock.Properties
+                    .of(Material.STONE)
                     .strength(3, 10)
                     .sound(SoundType.ANCIENT_DEBRIS)
             ));
 
     public static final RegistryObject<Block> COVENANT_RITUAL_BLOCK = BLOCKS.register("covenant_ritual",
-            () -> Block(AbstractBlock.Properties
+            () -> new CovenantRitualBlock(AbstractBlock.Properties
                     .of(Material.STONE, MaterialColor.COLOR_BLACK)
-                    .
+                    .sound(SoundType.ANCIENT_DEBRIS)
             ));
 }

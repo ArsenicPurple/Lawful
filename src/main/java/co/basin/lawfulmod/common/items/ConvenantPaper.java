@@ -48,16 +48,12 @@ public class ConvenantPaper extends SoulboundItem {
         }
     }
 
-    public void setPactItem(ItemStack stack) {
-        ItemNBTUtil.setCompound(stack, TAG_PACT_ITEM, stack.serializeNBT());
+    public void setPactItem(ItemStack stack, ItemStack pactItem) {
+        ItemNBTUtil.setCompound(stack, TAG_PACT_ITEM, pactItem.serializeNBT());
     }
 
-    public boolean getPactItem(ItemStack stack) {
-        CompoundNBT  nbt;
-        if ((nbt = ItemNBTUtil.getCompound(stack, TAG_PACT_ITEM, true)) ==  null) {
-            return false;
-        }
+    public ItemStack getPactItem(ItemStack stack) {
+        CompoundNBT nbt = new CompoundNBT();
         stack.deserializeNBT(nbt);
-        return true;
     }
 }

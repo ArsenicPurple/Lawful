@@ -50,8 +50,13 @@ public class SoulboundItem extends Item {
         }
     }
 
-    public void setTagIsActive(ItemStack stack) {
-        ItemNBTUtil.setBoolean(stack, TAG_IS_ACTIVE, true);
+
+    public boolean isActive(ItemStack stack) {
+        return ItemNBTUtil.getBoolean(stack, TAG_IS_ACTIVE, false);
+    }
+
+    public void setActive(ItemStack stack, boolean active) {
+        ItemNBTUtil.setBoolean(stack, TAG_IS_ACTIVE, active);
     }
 
     @Override

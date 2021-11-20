@@ -49,6 +49,14 @@ public class SoulboundItem extends Item {
         }
     }
 
+    public boolean isActive(ItemStack stack) {
+        return ItemNBTUtil.getBoolean(stack, TAG_IS_ACTIVE, false);
+    }
+
+    public void setActive(ItemStack stack, boolean active) {
+        ItemNBTUtil.setBoolean(stack, TAG_IS_ACTIVE, active);
+    }
+
     @Override
     public boolean verifyTagAfterLoad(CompoundNBT nbt) {
         return super.verifyTagAfterLoad(nbt);

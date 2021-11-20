@@ -16,10 +16,8 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ConvenantPaper extends Item {
-    private Item pactItem;
-    private boolean isActive;
-    CompoundNBT nbt = new CompoundNBT();
+public class ConvenantPaper extends SoulboundItem {
+    public static final String TAG_PACT_ITEM = "pactItem";
 
     public ConvenantPaper(Properties properties) {
         super(properties);
@@ -30,18 +28,10 @@ public class ConvenantPaper extends Item {
         super.appendHoverText(stack, world, tooltip, flagIn);
     }
 
-    public void setPactItem(Item pactItem) {
-        this.pactItem = pactItem;
-    }
-
-    public void setActive() {
-        isActive = true;
-    }
-
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int inventorySlot, boolean isSelected) {
         if (!world.isClientSide) {
-            if (isActive) {
+            if (isActive(stack)) {
                 if (entity instanceof PlayerEntity) {
                     if (((PlayerEntity)entity).inventory.contains(pactItem.getDefaultInstance())) {
                         entity.hurt(new DamageSource("lawful.broken_covenant"), 2);
@@ -49,5 +39,14 @@ public class ConvenantPaper extends Item {
                 }
             }
         }
+    }
+
+    public void setPactItem(ItemStack stack, ItemStack pactItem) {
+        ItemNBTUtil.setCompound(stack, TAG_PACT_ITEM, pactItem.serializeNBT());
+    }
+
+    public ItemStack getPactItem(ItemStack stack) {
+        CompoundNBT nbt = new CompoundNBT();
+        stack.deserializeNBT(nbt);
     }
 }

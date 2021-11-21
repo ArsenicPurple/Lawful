@@ -59,11 +59,11 @@ public class CovenantPaper extends SoulboundItem {
      * @return {@code ItemStack} The ItemStack of the Pact.
      */
     public ItemStack getPactItem(ItemStack stack) {
-        if (pactItemCache != null) { return pactItemCache; }
+        if (this.pactItemCache != null) { return this.pactItemCache; }
         CompoundNBT nbt;
         if ((nbt = ItemNBTUtil.getCompound(stack, TAG_PACT_ITEM, true)) == null) {
             return null;
         }
-        return (pactItemCache = ItemStack.of(nbt));
+        return (this.pactItemCache = ItemStack.of(nbt));
     }
 }

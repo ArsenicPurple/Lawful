@@ -44,7 +44,7 @@ public class BloodSoakedAxe extends SwordItem {
     }
 
     /**
-     *
+     * Runs ~every tick (1/4 second)
      * @param stack The stack which is ticking.
      * @param world The world the tick is taking place in.
      * @param entity The entity that has the ticking stack.

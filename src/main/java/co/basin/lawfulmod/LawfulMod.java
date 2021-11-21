@@ -47,6 +47,7 @@ public class LawfulMod
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
 
+        //makes the ore generate
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
 
         ContainerTypeInit.CONTAINER_TYPES.register(bus);

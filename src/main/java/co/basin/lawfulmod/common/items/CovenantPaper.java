@@ -45,7 +45,7 @@ public class CovenantPaper extends SoulboundItem {
     }
 
     /**
-     * Writes and ItemStack to the NBT data of another ItemStack.
+     * Writes an ItemStack to the NBT data of another ItemStack.
      * @param stack The ItemStack being written to.
      * @param pactItem The ItemStack being written.
      */

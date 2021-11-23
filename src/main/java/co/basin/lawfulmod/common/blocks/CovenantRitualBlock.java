@@ -1,6 +1,7 @@
 package co.basin.lawfulmod.common.blocks;
 
 import co.basin.lawfulmod.common.items.CovenantPaper;
+import co.basin.lawfulmod.common.tileentities.CovenantRitualTileEntity;
 import co.basin.lawfulmod.core.util.ItemNBTUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -20,6 +21,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class CovenantRitualBlock extends Block {
     public static final String TAG_EMITTING_BLOCKS = "emittingBlocks";
@@ -54,6 +57,17 @@ public class CovenantRitualBlock extends Block {
             }
         }
         super.updateEntityAfterFallOn(reader, entity);
+    }
+
+    @Override
+    public boolean hasTileEntity(BlockState state) {
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new CovenantRitualTileEntity();
     }
 
     public void setRitualItem(TileEntity tileEntity, ItemStack ritualItem) {

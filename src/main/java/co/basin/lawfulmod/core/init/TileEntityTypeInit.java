@@ -11,5 +11,4 @@ public class TileEntityTypeInit {
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, LawfulMod.MOD_ID);
 
     public static RegistryObject<TileEntityType<CovenantRitualTileEntity>> COVENANT_RITUAL_TILE_ENTITY;
-
 }

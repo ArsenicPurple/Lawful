@@ -25,10 +25,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class CovenantRitualBlock extends Block {
-    public static final String TAG_EMITTING_BLOCKS = "emittingBlocks";
-    public static final String TAG_RITUAL_ITEM = "ritualItem";
-    private BlockPos[] emittingBlocksCache = null;
-    private ItemStack ritualItemCache = null;
+
 
     public CovenantRitualBlock(Properties properties) {
         super(properties);
@@ -52,8 +49,11 @@ public class CovenantRitualBlock extends Block {
                     super.updateEntityAfterFallOn(reader, entity);
                     return;
                 }
-
-
+                BlockPos position = entity.blockPosition();
+                TileEntity tileEntity = reader.getBlockEntity(position.below());
+                if (tileEntity instanceof CovenantRitualTileEntity) {
+                    ((CovenantRitualTileEntity) tileEntity).setRitualItem();
+                }
             }
         }
         super.updateEntityAfterFallOn(reader, entity);
@@ -68,27 +68,5 @@ public class CovenantRitualBlock extends Block {
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new CovenantRitualTileEntity();
-    }
-
-    public void setRitualItem(TileEntity tileEntity, ItemStack ritualItem) {
-
-    }
-
-    public void setEmittingBlocks(ItemStack stack, BlockPos[] positions) {
-        long[] array = new long[positions.length];
-        for (int i = 0; i < positions.length; i++) {
-            array[i] = positions[i].asLong();
-        }
-        stack.addTagElement(TAG_EMITTING_BLOCKS, new LongArrayNBT(array));
-    }
-
-    public BlockPos[] getEmittingBlocks(ItemStack stack) {
-        if (emittingBlocksCache != null) { return emittingBlocksCache; }
-        long[] array = stack.getOrCreateTag().getLongArray(TAG_EMITTING_BLOCKS);
-        BlockPos[] positions = new BlockPos[array.length];
-        for (int i = 0; i < array.length; i++) {
-            positions[i] = BlockPos.of(array[i]);
-        }
-        return (emittingBlocksCache = positions);
     }
 }

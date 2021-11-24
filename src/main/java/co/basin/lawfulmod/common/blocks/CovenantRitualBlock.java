@@ -2,18 +2,12 @@ package co.basin.lawfulmod.common.blocks;
 
 import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.common.tileentities.CovenantRitualTileEntity;
-import co.basin.lawfulmod.core.util.ItemNBTUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.nbt.LongArrayNBT;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -25,7 +19,6 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class CovenantRitualBlock extends Block {
-
 
     public CovenantRitualBlock(Properties properties) {
         super(properties);

@@ -56,4 +56,9 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.PACTING_TABLE_BLOCK.get(), new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
             ));
+
+    public static final RegistryObject<BlockItem> COVENANT_PEDESTAL = ITEMS.register("covenant_pedestal",
+            () -> new BlockItem(BlockInit.COVENANT_PEDESTAL.get(), new Item.Properties()
+                    .tab(LawfulMod.LAWFUL_GROUP)
+            ));
 }

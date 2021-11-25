@@ -1,7 +1,7 @@
 package co.basin.lawfulmod.core.init;
 
 import co.basin.lawfulmod.LawfulMod;
-import co.basin.lawfulmod.common.blocks.CovenantRitualBlock;
+import co.basin.lawfulmod.common.blocks.CovenantPedestal;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -12,8 +12,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.block.Block;
 import co.basin.lawfulmod.common.blocks.PactingTableBlock;
-import net.minecraft.block.Block;
-import net.minecraft.util.registry.Registry;
 
 public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, LawfulMod.MOD_ID);
@@ -42,8 +40,8 @@ public class BlockInit {
                     .sound(SoundType.ANCIENT_DEBRIS)
             ));
 
-    public static final RegistryObject<Block> COVENANT_RITUAL_BLOCK = BLOCKS.register("covenant_ritual",
-            () -> new CovenantRitualBlock(AbstractBlock.Properties
+    public static final RegistryObject<Block> COVENANT_PEDESTAL = BLOCKS.register("covenant_pedestal",
+            () -> new CovenantPedestal(AbstractBlock.Properties
                     .of(Material.STONE, MaterialColor.COLOR_BLACK)
                     .sound(SoundType.ANCIENT_DEBRIS)
             ));

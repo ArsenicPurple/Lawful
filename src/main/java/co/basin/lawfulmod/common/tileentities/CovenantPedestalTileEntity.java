@@ -12,26 +12,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
 
-public class CovenantRitualTileEntity extends TileEntity implements ITickableTileEntity {
+public class CovenantPedestalTileEntity extends TileEntity implements ITickableTileEntity {
     public static final String TAG_EMITTING_BLOCKS = "emittingBlocks";
     public static final String TAG_RITUAL_ITEM = "ritualItem";
     private BlockPos[] emittingBlocksCache = null;
     private ItemStack ritualItemCache = null;
 
-    public CovenantRitualTileEntity() {
-        super(TileEntityTypeInit.COVENANT_RITUAL_TILE_ENTITY.get());
+    public CovenantPedestalTileEntity() {
+        super(TileEntityTypeInit.COVENANT_PEDESTAL.get());
     }
-
-    private CompoundNBT nbt = new CompoundNBT();
 
     @Override
     public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
         super.onDataPacket(net, pkt);
-    }
-
-    @Override
-    public CompoundNBT getTileData() {
-        return super.getTileData();
     }
 
     @Override
@@ -40,20 +33,29 @@ public class CovenantRitualTileEntity extends TileEntity implements ITickableTil
     }
 
     public void setRitualItem(TileEntity tileEntity, ItemStack ritualItem) {
-
+        CompoundNBT nbt = ritualItem.serializeNBT();
+        tileEntity.getTileData().put(TAG_RITUAL_ITEM, nbt);
+        ritualItemCache = ritualItem;
     }
 
-    public void setEmittingBlocks(ItemStack stack, BlockPos[] positions) {
+    public ItemStack getRitualItem(TileEntity tileEntity) {
+        if (ritualItemCache != null) { return ritualItemCache; }
+        CompoundNBT nbt = tileEntity.getTileData().getCompound(TAG_RITUAL_ITEM);
+        ItemStack ritualItem = ItemStack.of(nbt);
+        return (ritualItemCache = ritualItem);
+    }
+
+    public void setEmittingBlocks(TileEntity tileEntity, BlockPos[] positions) {
         long[] array = new long[positions.length];
         for (int i = 0; i < positions.length; i++) {
             array[i] = positions[i].asLong();
         }
-        stack.addTagElement(TAG_EMITTING_BLOCKS, new LongArrayNBT(array));
+        tileEntity.getTileData().putLongArray(TAG_EMITTING_BLOCKS, array);
     }
 
-    public BlockPos[] getEmittingBlocks(ItemStack stack) {
+    public BlockPos[] getEmittingBlocks(TileEntity tileEntity) {
         if (emittingBlocksCache != null) { return emittingBlocksCache; }
-        long[] array = stack.getOrCreateTag().getLongArray(TAG_EMITTING_BLOCKS);
+        long[] array = tileEntity.getTileData().getLongArray(TAG_EMITTING_BLOCKS);
         BlockPos[] positions = new BlockPos[array.length];
         for (int i = 0; i < array.length; i++) {
             positions[i] = BlockPos.of(array[i]);

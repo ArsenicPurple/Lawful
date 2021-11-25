@@ -1,7 +1,7 @@
 package co.basin.lawfulmod.common.blocks;
 
 import co.basin.lawfulmod.common.items.CovenantPaper;
-import co.basin.lawfulmod.common.tileentities.CovenantRitualTileEntity;
+import co.basin.lawfulmod.common.tileentities.CovenantPedestalTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -18,9 +18,9 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class CovenantRitualBlock extends Block {
+public class CovenantPedestal extends Block {
 
-    public CovenantRitualBlock(Properties properties) {
+    public CovenantPedestal(Properties properties) {
         super(properties);
     }
 
@@ -44,8 +44,8 @@ public class CovenantRitualBlock extends Block {
                 }
                 BlockPos position = entity.blockPosition();
                 TileEntity tileEntity = reader.getBlockEntity(position.below());
-                if (tileEntity instanceof CovenantRitualTileEntity) {
-                    ((CovenantRitualTileEntity) tileEntity).setRitualItem();
+                if (tileEntity instanceof CovenantPedestalTileEntity) {
+                    ((CovenantPedestalTileEntity) tileEntity).setRitualItem(tileEntity, stack);
                 }
             }
         }
@@ -60,6 +60,6 @@ public class CovenantRitualBlock extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new CovenantRitualTileEntity();
+        return new CovenantPedestalTileEntity();
     }
 }

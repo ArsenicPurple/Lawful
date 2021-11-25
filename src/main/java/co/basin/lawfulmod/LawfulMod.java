@@ -3,6 +3,7 @@ package co.basin.lawfulmod;
 import co.basin.lawfulmod.core.init.BlockInit;
 import co.basin.lawfulmod.core.init.ContainerTypeInit;
 import co.basin.lawfulmod.core.init.ItemInit;
+import co.basin.lawfulmod.core.init.TileEntityTypeInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
@@ -45,6 +46,7 @@ public class LawfulMod
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
         ContainerTypeInit.CONTAINER_TYPES.register(bus);
+        TileEntityTypeInit.TILE_ENTITY_TYPES.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

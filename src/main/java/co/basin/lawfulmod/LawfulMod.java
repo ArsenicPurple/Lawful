@@ -36,7 +36,7 @@ import java.util.stream.Stream;
 public class LawfulMod
 {
     public static final String MOD_ID = "lawful";
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final ItemGroup LAWFUL_GROUP = new LawfulGroup("lawfultab");
 
     public LawfulMod() {

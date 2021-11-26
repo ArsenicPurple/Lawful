@@ -57,6 +57,7 @@ public class CovenantPaper extends SoulboundItem {
      * Returns an ItemStack from NBT data. Caches the ItemStack after reading.
      * @param stack The stack to load NBT from.
      * @return {@code ItemStack} The ItemStack of the Pact.
+     * @see ItemStack
      */
     public ItemStack getPactItem(ItemStack stack) {
         if (this.pactItemCache != null) { return this.pactItemCache; }

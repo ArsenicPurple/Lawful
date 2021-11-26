@@ -52,7 +52,7 @@ public class PactingContainer extends AbstractRepairContainer {
         if (result.getItem() instanceof CovenantPaper) {
             CovenantPaper itemStack = ((CovenantPaper) result.getItem());
             itemStack.setPactItem(result.getStack(), this.inputSlots.getItem(1));
-            itemStack.setActive(result.getStack(), true);
+            itemStack.setActive(result.getStack(), false);
             this.resultSlots.setItem(0, result.getStack());
         }
     }

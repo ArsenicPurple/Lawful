@@ -30,9 +30,6 @@ public class ClientEventBusSubscriber {
     public static void clientSetup(FMLClientSetupEvent event) {
         ScreenManager.register(ContainerTypeInit.PACTING_TABLE.get(), PactingTableScreen::new);
 
-        RenderTypeLookup.setRenderLayer(BlockInit.COVENANT_PEDESTAL.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockInit.PACTING_TABLE_BLOCK.get(), RenderType.cutout());
-
         ClientRegistry.bindTileEntityRenderer(TileEntityTypeInit.COVENANT_PEDESTAL.get(), CovenantPedestalTileEntityRenderer::new);
     }
 }

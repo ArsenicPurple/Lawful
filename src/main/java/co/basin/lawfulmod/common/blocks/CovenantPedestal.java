@@ -44,8 +44,19 @@ public class CovenantPedestal extends Block {
     }
 
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity entity, Hand hand, BlockRayTraceResult result) {
-        if (world.isClientSide) {
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult result) {
+        TileEntity tileEntity = world.getBlockEntity(pos);
+        if (tileEntity instanceof CovenantPedestalTileEntity) {
+            ItemStack stack;
+            if (!(stack = ((CovenantPedestalTileEntity) tileEntity).getRitualItem(tileEntity)).isEmpty()) {
+                player.inventory.add(stack);
+                ((CovenantPedestalTileEntity) tileEntity).setRitualItem(tileEntity, stack);
+                return ActionResultType.CONSUME;
+            }
+            LawfulMod.LOGGER.debug("There is no Ritual Item in the pedestal");
+        }
+
+        if (world.isClientSide()) {
             return ActionResultType.SUCCESS;
         }
 
@@ -55,20 +66,17 @@ public class CovenantPedestal extends Block {
     @Override
     public void updateEntityAfterFallOn(IBlockReader reader, Entity entity) {
         if (entity instanceof ItemEntity) {
-            ItemStack stack;
-            if ((stack = ((ItemEntity) entity).getItem()).getItem() instanceof CovenantPaper) {
+            ItemStack stack = ((ItemEntity) entity).getItem();
+            if (stack.getItem() instanceof CovenantPaper) {
                 if (((CovenantPaper) stack.getItem()).getIsActive(stack)) {
                     super.updateEntityAfterFallOn(reader, entity);
                     return;
                 }
 
                 BlockPos position = entity.blockPosition();
-                TileEntity tileEntity = reader.getBlockEntity(position.below());
+                TileEntity tileEntity = reader.getBlockEntity(position);
                 if (tileEntity instanceof CovenantPedestalTileEntity) {
                     ((CovenantPedestalTileEntity) tileEntity).setRitualItem(tileEntity, stack);
-                }
-
-                if (entity.level instanceof ServerWorld) {
                     entity.remove(true);
                 }
             }

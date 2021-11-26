@@ -11,6 +11,9 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.client.model.data.IModelData;
+
+import javax.annotation.Nonnull;
 
 public class CovenantPedestalTileEntity extends TileEntity implements ITickableTileEntity {
     public static final String TAG_EMITTING_BLOCKS = "emittingBlocks";
@@ -23,19 +26,19 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-        super.onDataPacket(net, pkt);
-    }
-
-    @Override
     public void tick() {
 
     }
 
+    //    public void clearRitualItem(TileEntity tileEntity) {
+//        tileEntity.getTileData().remove(TAG_RITUAL_ITEM);
+//        ritualItemCache = null;
+//    }
+
     public void setRitualItem(TileEntity tileEntity, ItemStack ritualItem) {
-        CompoundNBT nbt = ritualItem.serializeNBT();
-        tileEntity.getTileData().put(TAG_RITUAL_ITEM, nbt);
+        tileEntity.getTileData().put(TAG_RITUAL_ITEM, ritualItem.serializeNBT());
         ritualItemCache = ritualItem;
+        super.requestModelDataUpdate();
     }
 
     public ItemStack getRitualItem(TileEntity tileEntity) {

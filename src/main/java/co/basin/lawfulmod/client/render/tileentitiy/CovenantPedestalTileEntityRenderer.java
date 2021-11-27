@@ -4,10 +4,14 @@ import co.basin.lawfulmod.common.tileentities.CovenantPedestalTileEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.model.*;
+import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,30 +25,34 @@ public class CovenantPedestalTileEntityRenderer extends TileEntityRenderer<Coven
         super(dispatcher);
     }
 
-
-
-    //TODO make this code work or something
+    /**
+     * Renders the ItemStack contained within the TileEntity.
+     */
     @Override
     public void render(CovenantPedestalTileEntity tileEntity, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLightIn, int combinedOverlayIn) {
         if (!tileEntity.isRemoved()) {
             matrixStack.pushPose();
-            //matrixStack.scale(0.75f, 0.75f, 0.75f);
-            matrixStack.translate(0.5, 0.9, 0.5);
+
+            // Shrinks the item and raises it to the top of the block.
+            matrixStack.scale(0.5f, 0.5f, 0.5f);
+            matrixStack.translate(1, 1.9, 1);
 
             if (!minecraft.isPaused()) {
                 matrixStack.translate(0, 6 / 16f, 0);
 
+                // Spins the item
                 float totalTicks = tileEntity.getLevel().getGameTime()+ partialTicks;
                 float angle = (totalTicks) % 360f;
                 Quaternion rotation = Vector3f.YP.rotationDegrees(angle);
+
+                // Bobs the item up and down
+                matrixStack.translate(0, MathHelper.sin(totalTicks / 10) / 10,0);
 
                 matrixStack.mulPose(rotation);
             }
 
             ItemStack stack = tileEntity.getRitualItem(tileEntity);
-            if (!stack.isEmpty()) {
-                minecraft.getItemRenderer().renderStatic(stack, ItemCameraTransforms.TransformType.FIXED, combinedLightIn, combinedOverlayIn, matrixStack, buffer);
-            }
+            minecraft.getItemRenderer().renderStatic(stack, ItemCameraTransforms.TransformType.FIXED, combinedLightIn, combinedOverlayIn, matrixStack, buffer);
             matrixStack.popPose();
         }
     }

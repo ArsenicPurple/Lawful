@@ -44,6 +44,11 @@ public class CovenantPaper extends SoulboundItem {
         }
     }
 
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        return getIsActive(stack);
+    }
+
     /**
      * Writes an ItemStack to the NBT data of another ItemStack.
      * @param stack The ItemStack being written to.

@@ -3,18 +3,16 @@ package co.basin.lawfulmod.common.blocks;
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.common.tileentities.CovenantPedestalTileEntity;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.item.ItemFrameEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AirItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -23,9 +21,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 
@@ -69,8 +65,15 @@ public class CovenantPedestal extends Block {
     public void updateEntityAfterFallOn(IBlockReader reader, Entity entity) {
         if (entity instanceof ItemEntity) {
             ItemStack stack = ((ItemEntity) entity).getItem();
-            if (stack.getItem() instanceof CovenantPaper) {
-                if (((CovenantPaper) stack.getItem()).getIsActive(stack)) {
+            if (!(stack.getItem() instanceof AirItem) && stack.getItem() instanceof CovenantPaper) {
+                CovenantPaper paper = ((CovenantPaper) stack.getItem());
+
+                if (paper.getIsActive(stack)) {
+                    super.updateEntityAfterFallOn(reader, entity);
+                    return;
+                }
+
+                if (paper.getPactItem(stack) == null || paper.getPactItem(stack).isEmpty()) {
                     super.updateEntityAfterFallOn(reader, entity);
                     return;
                 }

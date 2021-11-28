@@ -25,6 +25,11 @@ public class CovenantPedestalTileEntityRenderer extends TileEntityRenderer<Coven
         super(dispatcher);
     }
 
+    @Override
+    public boolean shouldRenderOffScreen(CovenantPedestalTileEntity tileEntity) {
+        return tileEntity.isRitualStarted();
+    }
+
     /**
      * Renders the ItemStack contained within the TileEntity.
      */
@@ -41,12 +46,18 @@ public class CovenantPedestalTileEntityRenderer extends TileEntityRenderer<Coven
                 matrixStack.translate(0, 6 / 16f, 0);
 
                 // Spins the item
-                float totalTicks = tileEntity.getLevel().getGameTime()+ partialTicks;
+                float totalTicks = tileEntity.getLevel().getGameTime() + partialTicks;
                 float angle = (totalTicks) % 360f;
                 Quaternion rotation = Vector3f.YP.rotationDegrees(angle);
 
                 // Bobs the item up and down
-                matrixStack.translate(0, MathHelper.sin(totalTicks / 10) / 10,0);
+                float height = 0;
+                if (tileEntity.isRitualStarted()) {
+                    height = tileEntity.getRitualStage() - 0.05f;
+                } else {
+                    height = MathHelper.sin(totalTicks / 10) / 10;
+                }
+                matrixStack.translate(0, height,0);
 
                 matrixStack.mulPose(rotation);
             }

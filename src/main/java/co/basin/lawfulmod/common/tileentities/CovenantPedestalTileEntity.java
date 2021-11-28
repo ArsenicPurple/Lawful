@@ -1,13 +1,18 @@
 package co.basin.lawfulmod.common.tileentities;
 
+import co.basin.lawfulmod.LawfulMod;
+import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.core.init.TileEntityTypeInit;
+import co.basin.lawfulmod.core.util.ParticleUtil;
 import co.basin.lawfulmod.core.util.UtilArrays;
 import net.minecraft.block.Blocks;
 import net.minecraft.command.impl.WeatherCommand;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.LightningBoltEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -15,15 +20,14 @@ import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.server.ServerWorld;
 
 public class CovenantPedestalTileEntity extends TileEntity implements ITickableTileEntity {
-    public static final String TAG_EMITTING_BLOCKS = "emittingBlocks";
     public static final String TAG_RITUAL_ITEM = "ritualItem";
-    private BlockPos[] emittingBlocksCache = null;
     private ItemStack ritualItemCache = null;
 
-    private long ritualStartAt = 0;
+    private long ritualStartedAt = 0;
     private boolean ritualStarted;
     private float ritualStage = 0;
 
+    private final BlockPos[] anchorPositions = new BlockPos[4];
 
     public CovenantPedestalTileEntity() {
         super(TileEntityTypeInit.COVENANT_PEDESTAL.get());
@@ -33,27 +37,45 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
     public void tick() {
         if (ritualStarted) {
             ritualStage += 0.01;
-            if (ticksSinceRitualStarted() > 100) {
+            if (ticksSinceRitualStarted() >= 300) {
                 finishRitual();
             }
         }
     }
 
     private void startRitual() {
+        LawfulMod.LOGGER.debug("Ritual Started");
+
         ritualStarted = true;
-        // Do particle stuff
+        ritualStartedAt = getLevel().getGameTime();
+
+        //TODO: Particle Stuff
+        if (!getLevel().isClientSide()) {
+            for (BlockPos pos : anchorPositions) {
+                if (pos == null) { continue; }
+                ParticleUtil.spawnParticles((ServerWorld) getLevel(), ParticleTypes.DRIPPING_OBSIDIAN_TEAR, pos.getX(), pos.getY() + 1, pos.getZ(), 20);
+            }
+        }
     }
 
     private void finishRitual() {
+        LawfulMod.LOGGER.debug("Ritual Finished");
+        ritualStarted = false;
+        ritualStage = 0;
         getLevel().addFreshEntity(new LightningBoltEntity(EntityType.LIGHTNING_BOLT, getLevel()));
+        ItemStack stack = getRitualItem(this.getTileEntity());
+        CovenantPaper covenantPaper = (CovenantPaper) stack.getItem();
+        covenantPaper.setActive(stack, true);
     }
 
     public float getRitualStage() {
         return ritualStage;
     }
 
+    public boolean isRitualStarted() { return ritualStarted; }
+
     private long ticksSinceRitualStarted() {
-        return getLevel().getGameTime() - ritualStartAt;
+        return getLevel().getGameTime() - ritualStartedAt;
     }
 
 
@@ -73,41 +95,28 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
         return (ritualItemCache = ritualItem);
     }
 
-    public void setEmittingBlocks(TileEntity tileEntity, BlockPos[] positions) {
-        long[] array = new long[positions.length];
-        for (int i = 0; i < positions.length; i++) {
-            array[i] = positions[i].asLong();
-        }
-        tileEntity.getTileData().putLongArray(TAG_EMITTING_BLOCKS, array);
-    }
-
-    public BlockPos[] getEmittingBlocks(TileEntity tileEntity) {
-        if (emittingBlocksCache != null) { return emittingBlocksCache; }
-        long[] array = tileEntity.getTileData().getLongArray(TAG_EMITTING_BLOCKS);
-        BlockPos[] positions = new BlockPos[array.length];
-        for (int i = 0; i < array.length; i++) {
-            positions[i] = BlockPos.of(array[i]);
-        }
-        return (emittingBlocksCache = positions);
-    }
-
     private boolean ritualBlocksAreValid() {
-        int cryingCount = 0;
-        int anchorCount = 0;
+        int pillarCount = 0;
 
-        for (Vector3i offset : UtilArrays.CRYING_OFFSETS) {
-            if (getLevel().getBlockState(getBlockPos().offset(offset)).getBlock().is(Blocks.CRYING_OBSIDIAN)) {
-                cryingCount++;
+        for (Vector3i offset : UtilArrays.PILLAR_OFFSETS) {
+            int cryingCount = 0;
+            BlockPos position = getBlockPos().offset(offset);
+            for (int i = 0; i < 2; i++) {
+                if (getLevel().getBlockState(position.above(i)).getBlock().is(Blocks.CRYING_OBSIDIAN)) {
+                    cryingCount++;
+                }
+            }
+
+            if (cryingCount == 2) {
+                if (getLevel().getBlockState(position.above(2)).getBlock().is(Blocks.RESPAWN_ANCHOR)) {
+                    pillarCount++;
+                    anchorPositions[pillarCount - 1] = position.above(2);
+                }
             }
         }
 
-        for (Vector3i offset : UtilArrays.ANCHOR_OFFSETS) {
-            if (getLevel().getBlockState(getBlockPos().offset(offset)).getBlock().is(Blocks.CRYING_OBSIDIAN)) {
-                anchorCount++;
-            }
-        }
-
-        if (anchorCount >= 2 && cryingCount >= 4) {
+        if (pillarCount >= 2) {
+            LawfulMod.LOGGER.debug("Ritual Blocks Found");
             return true;
         }
         return false;

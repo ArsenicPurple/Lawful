@@ -45,6 +45,11 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.MANA_IRON_ORE.get(), new Item.Properties()
                     .tab(ItemGroup.TAB_MATERIALS)
             ));
+
+    public static final RegistryObject<BlockItem> ENRICHED_MANA_ORE = ITEMS.register("enriched_mana_ore",
+            () -> new BlockItem(BlockInit.ENRICHED_MANA_ORE.get(), new Item.Properties()
+                    .tab(ItemGroup.TAB_MATERIALS)
+            ));
   
     public static final RegistryObject<ConvenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
             () -> new ConvenantPaper(new Item.Properties()

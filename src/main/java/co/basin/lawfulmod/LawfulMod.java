@@ -2,6 +2,7 @@ package co.basin.lawfulmod;
 
 import co.basin.lawfulmod.core.init.BlockInit;
 import co.basin.lawfulmod.core.init.ContainerTypeInit;
+import co.basin.lawfulmod.core.init.EnchantmentInit;
 import co.basin.lawfulmod.core.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -41,7 +42,7 @@ public class LawfulMod
     public LawfulMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
-
+        EnchantmentInit.ENCHANTMENTS.register(bus);
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
         ContainerTypeInit.CONTAINER_TYPES.register(bus);

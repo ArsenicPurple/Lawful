@@ -45,6 +45,8 @@ public class ItemInit {
                     .tab(ItemGroup.TAB_MATERIALS)
             ));
 
+
+
     //Block Items
     public static final RegistryObject<BlockItem> MANA_WOOD = ITEMS.register("mana_wood",
             () -> new BlockItem(BlockInit.MANA_WOOD.get(), new Item.Properties()

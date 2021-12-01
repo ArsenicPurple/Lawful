@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "lawful:blocks/enriched_mana_iron"
+    "all": "lawful:blocks/enriched_mana_ore"
   }
 }

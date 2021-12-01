@@ -13,6 +13,10 @@
 
   "block.lawful.enriched_mana_ore": "Enriched Mana Ore",
 
+  "item.lawful.mana_powder": "Mana Powder",
+
+  "item.lawful.enriched_mana_ingot": "Enriched Mana Ingot",
+
   "title.lawful.pacting_table": "Pacting Table",
 
   "death.attack.lawful.broken_covenant": "%1$s has broken their covenant",

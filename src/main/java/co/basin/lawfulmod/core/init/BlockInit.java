@@ -37,7 +37,7 @@ public class BlockInit {
     public static final RegistryObject<Block> ENRICHED_MANA_ORE = BLOCKS.register("enriched_mana_ore",
             () -> new Block(AbstractBlock.Properties
                     .of(Material.HEAVY_METAL, MaterialColor.COLOR_PURPLE)
-                    .harvestLevel(5)
+                    .harvestLevel(4)
                     .harvestTool(ToolType.PICKAXE)
                     .sound(SoundType.METAL)
                     .strength(14f)

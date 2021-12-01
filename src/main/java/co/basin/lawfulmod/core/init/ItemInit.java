@@ -35,6 +35,16 @@ public class ItemInit {
                     .tab(ItemGroup.TAB_MATERIALS)
             ));
 
+    public static final RegistryObject<Item> MANA_POWDER = ITEMS.register("mana_powder",
+            () -> new Item(new Item.Properties()
+                    .tab(ItemGroup.TAB_MATERIALS)
+            ));
+
+    public static final RegistryObject<Item> ENRICHED_MANA_INGOT = ITEMS.register("enriched_mana_ingot",
+            () -> new Item(new Item.Properties()
+                    .tab(ItemGroup.TAB_MATERIALS)
+            ));
+
     //Block Items
     public static final RegistryObject<BlockItem> MANA_WOOD = ITEMS.register("mana_wood",
             () -> new BlockItem(BlockInit.MANA_WOOD.get(), new Item.Properties()

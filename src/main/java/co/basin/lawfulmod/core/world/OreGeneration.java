@@ -23,7 +23,7 @@ public class OreGeneration {
             generateOre(event.getGeneration(), OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.MANA_IRON_ORE.get().defaultBlockState(), 5, 5, 30, 15);
         }
         else if(event.getCategory().equals(Biome.Category.THEEND)){
-            generateOre(event.getGeneration(), new BlockMatchRuleTest(Blocks.END_STONE), BlockInit.ENRICHED_MANA_ORE.get().defaultBlockState(), 4, 10, 30, 4);
+            generateOre(event.getGeneration(), new BlockMatchRuleTest(Blocks.END_STONE), BlockInit.ENRICHED_MANA_ORE.get().defaultBlockState(), 2, 10, 30, 2);
         }
     }
     private static void generateOre(BiomeGenerationSettingsBuilder settings, RuleTest fillerType,

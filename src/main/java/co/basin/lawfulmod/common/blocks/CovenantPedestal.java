@@ -10,7 +10,6 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AirItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -46,9 +45,9 @@ public class CovenantPedestal extends Block {
         TileEntity tileEntity = world.getBlockEntity(pos);
         if (tileEntity instanceof CovenantPedestalTileEntity) {
             ItemStack stack;
-            if (!(stack = ((CovenantPedestalTileEntity) tileEntity).getRitualItem(tileEntity)).isEmpty()) {
+            if (!(stack = ((CovenantPedestalTileEntity) tileEntity).getRitualItem()).isEmpty()) {
                 player.inventory.add(stack);
-                ((CovenantPedestalTileEntity) tileEntity).setRitualItem(tileEntity, stack);
+                ((CovenantPedestalTileEntity) tileEntity).setRitualItem(stack);
                 return ActionResultType.CONSUME;
             }
             LawfulMod.LOGGER.debug("There is no Ritual Item in the pedestal");
@@ -65,7 +64,8 @@ public class CovenantPedestal extends Block {
     public void updateEntityAfterFallOn(IBlockReader reader, Entity entity) {
         if (entity instanceof ItemEntity) {
             ItemStack stack = ((ItemEntity) entity).getItem();
-            if (!(stack.getItem() instanceof AirItem) && stack.getItem() instanceof CovenantPaper) {
+            if (stack.getItem() instanceof AirItem) { return; }
+            if (stack.getItem() instanceof CovenantPaper) {
                 CovenantPaper paper = ((CovenantPaper) stack.getItem());
 
                 if (paper.getIsActive(stack)) {
@@ -81,7 +81,7 @@ public class CovenantPedestal extends Block {
                 BlockPos position = entity.blockPosition();
                 TileEntity tileEntity = reader.getBlockEntity(position);
                 if (tileEntity instanceof CovenantPedestalTileEntity) {
-                    ((CovenantPedestalTileEntity) tileEntity).setRitualItem(tileEntity, stack);
+                    ((CovenantPedestalTileEntity) tileEntity).setRitualItem(stack);
                     entity.remove(true);
                 }
             }

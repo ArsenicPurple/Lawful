@@ -5,11 +5,10 @@ import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.core.init.TileEntityTypeInit;
 import co.basin.lawfulmod.core.util.ParticleUtil;
 import co.basin.lawfulmod.core.util.UtilArrays;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.command.impl.WeatherCommand;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.LightningBoltEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.ParticleTypes;
@@ -21,7 +20,7 @@ import net.minecraft.world.server.ServerWorld;
 
 public class CovenantPedestalTileEntity extends TileEntity implements ITickableTileEntity {
     public static final String TAG_RITUAL_ITEM = "ritualItem";
-    private ItemStack ritualItemCache = null;
+    private ItemStack ritualItem = null;
 
     private long ritualStartedAt = 0;
     private boolean ritualStarted;
@@ -41,6 +40,18 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
                 finishRitual();
             }
         }
+    }
+
+    @Override
+    public CompoundNBT save(CompoundNBT nbt) {
+        nbt.put(TAG_RITUAL_ITEM, ritualItem.serializeNBT());
+        return super.save(nbt);
+    }
+
+    @Override
+    public void load(BlockState state, CompoundNBT nbt) {
+        ritualItem = ItemStack.of(nbt.getCompound(TAG_RITUAL_ITEM));
+        super.load(state, nbt);
     }
 
     private void startRitual() {
@@ -63,9 +74,8 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
         ritualStarted = false;
         ritualStage = 0;
         getLevel().addFreshEntity(new LightningBoltEntity(EntityType.LIGHTNING_BOLT, getLevel()));
-        ItemStack stack = getRitualItem(this.getTileEntity());
-        CovenantPaper covenantPaper = (CovenantPaper) stack.getItem();
-        covenantPaper.setActive(stack, true);
+        CovenantPaper covenantPaper = (CovenantPaper) ritualItem.getItem();
+        covenantPaper.setActive(ritualItem, true);
     }
 
     public float getRitualStage() {
@@ -78,21 +88,16 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
         return getLevel().getGameTime() - ritualStartedAt;
     }
 
-
-    public void setRitualItem(TileEntity tileEntity, ItemStack ritualItem) {
-        tileEntity.getTileData().put(TAG_RITUAL_ITEM, ritualItem.serializeNBT());
-        ritualItemCache = ritualItem;
+    public void setRitualItem(ItemStack ritualItem) {
+        this.ritualItem = ritualItem;
 
         if (ritualBlocksAreValid()) {
             startRitual();
         }
     }
 
-    public ItemStack getRitualItem(TileEntity tileEntity) {
-        if (ritualItemCache != null) { return ritualItemCache; }
-        CompoundNBT nbt = tileEntity.getTileData().getCompound(TAG_RITUAL_ITEM);
-        ItemStack ritualItem = ItemStack.of(nbt);
-        return (ritualItemCache = ritualItem);
+    public ItemStack getRitualItem() {
+        return this.ritualItem;
     }
 
     private boolean ritualBlocksAreValid() {

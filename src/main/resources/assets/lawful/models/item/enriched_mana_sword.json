@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "lawful:items/enriched_mana_sword"
+  }
+}

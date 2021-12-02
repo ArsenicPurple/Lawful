@@ -4,6 +4,7 @@ import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.items.AdvancedItem;
 import co.basin.lawfulmod.common.items.BloodSoakedAxe;
 import co.basin.lawfulmod.common.items.ConvenantPaper;
+import co.basin.lawfulmod.common.items.ModItemTier;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,6 +30,26 @@ public class ItemInit {
                     .tab(LawfulMod.LAWFUL_GROUP)
                     .fireResistant()
             ));
+
+    public static final RegistryObject<SwordItem> ENRICHED_MANA_SWORD = ITEMS.register("enriched_mana_sword",
+            () -> new SwordItem(ModItemTier.EnrichedMana, 2, 0F,
+                    new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
+
+    public static final RegistryObject<Item> ENRICHED_MANA_AXE = ITEMS.register("enriched_mana_axe",
+            () -> new AxeItem(ModItemTier.EnrichedMana, 4, -2.5F,
+                    new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
+
+    public static final RegistryObject<Item> ENRICHED_MANA_SHOVEL = ITEMS.register("enriched_mana_shovel",
+            () -> new ShovelItem(ModItemTier.EnrichedMana, 1, -2F,
+                    new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
+
+    public static final RegistryObject<Item> ENRICHED_MANA_PICKAXE = ITEMS.register("enriched_mana_pickaxe",
+            () -> new PickaxeItem(ModItemTier.EnrichedMana, 1, -2F,
+                    new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
+
+    public static final RegistryObject<Item> ENRICHED_MANA_HOE = ITEMS.register("enriched_mana_hoe",
+            () -> new HoeItem(ModItemTier.EnrichedMana, -4, 0F,
+                    new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
   
     public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot_item",
             () -> new Item(new Item.Properties()

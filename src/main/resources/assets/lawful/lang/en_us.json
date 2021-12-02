@@ -5,13 +5,23 @@
   
   "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
 
-  "tooltip.lawful.mana_ingot_item": "Mana Ingot",
+  "item.lawful.mana_ingot_item": "Mana Ingot",
 
   "block.lawful.mana_wood": "Mana Wood",
 
   "block.lawful.mana_iron_ore": "Mana Iron Ore",
 
   "block.lawful.enriched_mana_ore": "Enriched Mana Ore",
+
+  "item.lawful.enriched_mana_sword":  "Enriched Mana Sword",
+
+  "item.lawful.enriched_mana_axe":  "Enriched Mana Axe",
+
+  "item.lawful.enriched_mana_shovel":  "Enriched Mana Shovel",
+
+  "item.lawful.enriched_mana_pickaxe":  "Enriched Mana Pickaxe",
+
+  "item.lawful.enriched_mana_hoe":  "Enriched Mana Hoe",
 
   "item.lawful.mana_powder": "Mana Powder",
 

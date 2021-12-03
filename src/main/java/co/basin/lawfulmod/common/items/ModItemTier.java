@@ -11,7 +11,6 @@ import net.minecraft.util.LazyValue;
 import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
-
     MANA(3, 100, 10.0F, 2.5F, 20,
             () -> Ingredient.of(ItemInit.MANA_INGOT.get())),
     EnrichedMana(5, 2500, 11.0F, 5.0F, 25,

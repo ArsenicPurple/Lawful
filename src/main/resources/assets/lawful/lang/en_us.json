@@ -31,5 +31,21 @@
 
   "death.attack.lawful.broken_covenant": "%1$s has broken their covenant",
 
-  "itemGroup.lawfultab": "Lawful"
+  "item.lawful.mana_pickaxe": "Mana Pickaxe",
+
+  "item.lawful.mana_axe": "Mana Axe",
+
+  "item.lawful.mana_shovel": "Mana Shovel",
+
+  "item.lawful.mana_hoe": "Mana Hoe",
+
+  "item.lawful.mana_sword": "Mana Sword",
+
+  "itemGroup.lawfultab": "Lawful",
+
+  "enchantment.lawful.haste": "Haste",
+
+  "itemGroup.lawfultab": "Lawful",
+  
+  "enchantment.lawful.regen": "Regen"
 }

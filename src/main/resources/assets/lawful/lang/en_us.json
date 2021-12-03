@@ -5,7 +5,7 @@
   
   "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
 
-  "tooltip.lawful.mana_ingot_item": "Mana Ingot",
+  "item.lawful.mana_ingot_item": "Mana Ingot",
 
   "block.lawful.mana_wood": "Mana Wood",
 
@@ -15,8 +15,41 @@
 
   "death.attack.lawful.broken_covenant": "%1$s has broken their covenant",
 
+  "tooltip.lawful.unbound": "Bound to \u00A76Unknown",
+  
+  "tooltip.lawful.bound_to": "Bound to \u00A76%s"
+
+  "block.lawful.enriched_mana_ore": "Enriched Mana Ore",
+
+  "item.lawful.enriched_mana_sword":  "Enriched Mana Sword",
+
+  "item.lawful.enriched_mana_axe":  "Enriched Mana Axe",
+
+  "item.lawful.enriched_mana_shovel":  "Enriched Mana Shovel",
+
+  "item.lawful.enriched_mana_pickaxe":  "Enriched Mana Pickaxe",
+
+  "item.lawful.enriched_mana_hoe":  "Enriched Mana Hoe",
+
+  "item.lawful.mana_powder": "Mana Powder",
+
+  "item.lawful.enriched_mana_ingot": "Enriched Mana Ingot",
+
+  "item.lawful.mana_pickaxe": "Mana Pickaxe",
+
+  "item.lawful.mana_axe": "Mana Axe",
+
+  "item.lawful.mana_shovel": "Mana Shovel",
+
+  "item.lawful.mana_hoe": "Mana Hoe",
+
+  "item.lawful.mana_sword": "Mana Sword",
+
   "itemGroup.lawfultab": "Lawful",
 
-  "tooltip.lawful.unbound": "Bound to \u00A76Unknown",
-  "tooltip.lawful.bound_to": "Bound to \u00A76%s"
+  "enchantment.lawful.haste": "Haste",
+
+  "itemGroup.lawfultab": "Lawful",
+  
+  "enchantment.lawful.regen": "Regen"
 }

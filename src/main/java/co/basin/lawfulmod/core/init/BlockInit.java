@@ -32,6 +32,15 @@ public class BlockInit {
                     .sound(SoundType.METAL)
                     .strength(8f)
                     .requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> ENRICHED_MANA_ORE = BLOCKS.register("enriched_mana_ore",
+            () -> new Block(AbstractBlock.Properties
+                    .of(Material.HEAVY_METAL, MaterialColor.COLOR_PURPLE)
+                    .harvestLevel(4)
+                    .harvestTool(ToolType.PICKAXE)
+                    .sound(SoundType.METAL)
+                    .strength(14f)
+                    .requiresCorrectToolForDrops()));
   
     public static final RegistryObject<Block> PACTING_TABLE_BLOCK = BLOCKS.register("pacting_table",
             () -> new PactingTableBlock(AbstractBlock.Properties

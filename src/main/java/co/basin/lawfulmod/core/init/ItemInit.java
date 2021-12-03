@@ -1,7 +1,11 @@
 package co.basin.lawfulmod.core.init;
 
 import co.basin.lawfulmod.LawfulMod;
-import co.basin.lawfulmod.common.items.*;
+import co.basin.lawfulmod.common.items.AdvancedItem;
+import co.basin.lawfulmod.common.items.BloodSoakedAxe;
+import co.basin.lawfulmod.common.items.ConvenantPaper;
+import co.basin.lawfulmod.common.items.ModArmorMaterial;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -53,7 +57,7 @@ public class ItemInit {
             HoeItem(ModItemTier.Mana, 0, -3.5F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
-  
+
     public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot_item",
             () -> new Item(new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
 
@@ -73,5 +77,25 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> PACTING_TABLE_BLOCK = ITEMS.register("pacting_table",
             () -> new BlockItem(BlockInit.PACTING_TABLE_BLOCK.get(), new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
+            ));
+
+    public static final RegistryObject<Item> MANA_BOOTS = ITEMS.register("mana_boots",
+            () -> new ArmorItem(ModArmorMaterial.MANA, EquipmentSlotType.FEET, new Item.Properties()
+                    .tab(ItemGroup.TAB_COMBAT)
+            ));
+
+    public static final RegistryObject<Item> MANA_CHESTPLATE = ITEMS.register("mana_chestplate",
+            () -> new ArmorItem(ModArmorMaterial.MANA, EquipmentSlotType.CHEST, new Item.Properties()
+                    .tab(ItemGroup.TAB_COMBAT)
+            ));
+
+    public static final RegistryObject<Item> MANA_LEGGINGS = ITEMS.register("mana_leggings",
+            () -> new ArmorItem(ModArmorMaterial.MANA, EquipmentSlotType.LEGS, new Item.Properties()
+                    .tab(ItemGroup.TAB_COMBAT)
+            ));
+
+    public static final RegistryObject<Item> MANA_HELMET = ITEMS.register("mana_helmet",
+            () -> new ArmorItem(ModArmorMaterial.MANA, EquipmentSlotType.HEAD, new Item.Properties()
+                    .tab(ItemGroup.TAB_COMBAT)
             ));
 }

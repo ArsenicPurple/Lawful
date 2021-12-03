@@ -1,11 +1,7 @@
 package co.basin.lawfulmod.core.init;
 
 import co.basin.lawfulmod.LawfulMod;
-import co.basin.lawfulmod.common.items.AdvancedItem;
-import co.basin.lawfulmod.common.items.BloodSoakedAxe;
-import co.basin.lawfulmod.common.items.ConvenantPaper;
-import co.basin.lawfulmod.common.items.ModItemTier;
-import co.basin.lawfulmod.common.items.ModArmorMaterial;
+import co.basin.lawfulmod.common.items.*;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -108,8 +104,8 @@ public class ItemInit {
                     .tab(ItemGroup.TAB_MATERIALS)
             ));
   
-    public static final RegistryObject<ConvenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
-            () -> new ConvenantPaper(new Item.Properties()
+    public static final RegistryObject<CovenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
+            () -> new CovenantPaper(new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
@@ -122,6 +118,7 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> COVENANT_PEDESTAL = ITEMS.register("covenant_pedestal",
             () -> new BlockItem(BlockInit.COVENANT_PEDESTAL.get(), new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
+            ));
 
     public static final RegistryObject<Item> MANA_BOOTS = ITEMS.register("mana_boots",
             () -> new ArmorItem(ModArmorMaterial.MANA, EquipmentSlotType.FEET, new Item.Properties()

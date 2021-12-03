@@ -60,7 +60,9 @@ public class CovenantPedestalTileEntityRenderer extends TileEntityRenderer<Coven
             }
 
             ItemStack stack = tileEntity.getRitualItem();
-            minecraft.getItemRenderer().renderStatic(stack, ItemCameraTransforms.TransformType.FIXED, combinedLightIn, combinedOverlayIn, matrixStack, buffer);
+            if (stack != null) {
+                minecraft.getItemRenderer().renderStatic(stack, ItemCameraTransforms.TransformType.FIXED, combinedLightIn, combinedOverlayIn, matrixStack, buffer);
+            }
             matrixStack.popPose();
         }
     }

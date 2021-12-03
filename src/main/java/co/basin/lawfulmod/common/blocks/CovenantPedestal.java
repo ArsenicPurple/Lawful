@@ -64,7 +64,7 @@ public class CovenantPedestal extends Block {
     public void updateEntityAfterFallOn(IBlockReader reader, Entity entity) {
         if (entity instanceof ItemEntity) {
             ItemStack stack = ((ItemEntity) entity).getItem();
-            if (stack.getItem() instanceof AirItem) { return; }
+            if (stack.getItem() instanceof AirItem || stack.isEmpty()) { return; }
             if (stack.getItem() instanceof CovenantPaper) {
                 CovenantPaper paper = ((CovenantPaper) stack.getItem());
 
@@ -73,7 +73,7 @@ public class CovenantPedestal extends Block {
                     return;
                 }
 
-                if (paper.getPactItem(stack) == null || paper.getPactItem(stack).isEmpty()) {
+                if (paper.getPactType(stack) == -1) {
                     super.updateEntityAfterFallOn(reader, entity);
                     return;
                 }

@@ -44,6 +44,7 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
 
     @Override
     public CompoundNBT save(CompoundNBT nbt) {
+        if (ritualItem == null) { return super.save(nbt); }
         nbt.put(TAG_RITUAL_ITEM, ritualItem.serializeNBT());
         return super.save(nbt);
     }
@@ -60,7 +61,6 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
         ritualStarted = true;
         ritualStartedAt = getLevel().getGameTime();
 
-        //TODO: Particle Stuff
         if (!getLevel().isClientSide()) {
             for (BlockPos pos : anchorPositions) {
                 if (pos == null) { continue; }
@@ -70,12 +70,14 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
     }
 
     private void finishRitual() {
+        // LOG
         LawfulMod.LOGGER.debug("Ritual Finished");
+        //
         ritualStarted = false;
         ritualStage = 0;
-        getLevel().addFreshEntity(new LightningBoltEntity(EntityType.LIGHTNING_BOLT, getLevel()));
         CovenantPaper covenantPaper = (CovenantPaper) ritualItem.getItem();
         covenantPaper.setActive(ritualItem, true);
+        covenantPaper.setCanBeActive(ritualItem);
     }
 
     public float getRitualStage() {

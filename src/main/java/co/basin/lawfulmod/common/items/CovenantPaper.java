@@ -1,12 +1,15 @@
 package co.basin.lawfulmod.common.items;
 
 import co.basin.lawfulmod.core.util.ItemNBTUtil;
+import co.basin.lawfulmod.core.util.PactUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
@@ -14,8 +17,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class CovenantPaper extends SoulboundItem {
-    public static final String TAG_PACT_ITEM = "pactItem";
-    private ItemStack pactItemCache = null;
+    private static final String TAG_CAN_BE_ACTIVE = "canBeActive";
+    private static final String TAG_IS_ACTIVE = "isActive";
+    public static final String TAG_PACT_TYPE = "pactType";
+    private int pactType = -1;
 
     public CovenantPaper(Properties properties) {
         super(properties);
@@ -32,13 +37,22 @@ public class CovenantPaper extends SoulboundItem {
     }
 
     @Override
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        ItemStack stack = playerIn.getItemInHand(handIn);
+        if (getCanBeActive(stack)) { setActive(stack, !getIsActive(stack)); }
+        return super.use(worldIn, playerIn, handIn);
+    }
+
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int inventorySlot, boolean isSelected) {
         if (world.isClientSide) { return; }
 
-        if (getIsActive(stack)) {
+        if (getIsActive(stack) && pactType != -1) {
             if (entity instanceof PlayerEntity) {
-                if (((PlayerEntity)entity).inventory.contains(getPactItem(stack))) {
-                    entity.hurt(new DamageSource("lawful.broken_covenant"), 2);
+                int invSize = ((PlayerEntity)entity).inventory.getContainerSize();
+                int random = world.random.nextInt(invSize + 1);
+                if (PactUtils.testForType(((PlayerEntity)entity).inventory.getItem(random), pactType)) {
+                    entity.hurt(new DamageSource("lawful.broken_covenant"), 5);
                 }
             }
         }
@@ -49,27 +63,27 @@ public class CovenantPaper extends SoulboundItem {
         return getIsActive(stack);
     }
 
-    /**
-     * Writes an ItemStack to the NBT data of another ItemStack.
-     * @param stack The ItemStack being written to.
-     * @param pactItem The ItemStack being written.
-     */
-    public void setPactItem(ItemStack stack, ItemStack pactItem) {
-        ItemNBTUtil.setCompound(stack, TAG_PACT_ITEM, pactItem.serializeNBT());
+    public void setPactType(ItemStack stack, int type) {
+        ItemNBTUtil.setInt(stack, TAG_PACT_TYPE, type);
+        pactType = type;
     }
 
-    /**
-     * Returns an ItemStack from NBT data. Caches the ItemStack after reading.
-     * @param stack The stack to load NBT from.
-     * @return {@code ItemStack} The ItemStack of the Pact.
-     * @see ItemStack
-     */
-    public ItemStack getPactItem(ItemStack stack) {
-        if (this.pactItemCache != null) { return this.pactItemCache; }
-        CompoundNBT nbt;
-        if ((nbt = ItemNBTUtil.getCompound(stack, TAG_PACT_ITEM, true)) == null) {
-            return null;
-        }
-        return (this.pactItemCache = ItemStack.of(nbt));
+    public int getPactType(ItemStack stack) {
+        if (this.pactType != -1) { return pactType; }
+        return (this.pactType = ItemNBTUtil.getInt(stack, TAG_PACT_TYPE, -1));
+    }
+
+    public void setActive(ItemStack stack, boolean active) {
+        ItemNBTUtil.setBoolean(stack, TAG_IS_ACTIVE, active);
+    }
+
+    public boolean getIsActive(ItemStack stack) {
+        return ItemNBTUtil.getBoolean(stack, TAG_IS_ACTIVE, false);
+    }
+
+    public void setCanBeActive(ItemStack stack) { ItemNBTUtil.setBoolean(stack, TAG_CAN_BE_ACTIVE, true); }
+
+    public boolean getCanBeActive(ItemStack stack) {
+        return ItemNBTUtil.getBoolean(stack, TAG_IS_ACTIVE, false);
     }
 }

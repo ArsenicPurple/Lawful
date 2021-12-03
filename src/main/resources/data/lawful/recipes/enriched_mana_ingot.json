@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lawful:mana_powder"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "lawful:mana_powder"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "lawful:mana_powder"
+    },
+    {
+      "item": "lawful:mana_powder"
+    }
+  ],
+  "result": {
+    "item": "lawful:enriched_mana_ingot",
+    "count": 1
+  }
+}

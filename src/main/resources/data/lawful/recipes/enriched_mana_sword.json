@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " l ",
+    " l ",
+    " / "
+  ],
+  "key": {
+    "l": {
+      "item": "lawful:enriched_mana_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "lawful:enriched_mana_sword",
+    "count": 1
+  }
+}

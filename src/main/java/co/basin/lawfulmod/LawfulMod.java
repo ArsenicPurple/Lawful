@@ -4,6 +4,7 @@ import co.basin.lawfulmod.core.init.BlockInit;
 import co.basin.lawfulmod.core.init.ContainerTypeInit;
 import co.basin.lawfulmod.core.init.EnchantmentInit;
 import co.basin.lawfulmod.core.init.ItemInit;
+import co.basin.lawfulmod.core.world.OreGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -45,6 +47,10 @@ public class LawfulMod
         EnchantmentInit.ENCHANTMENTS.register(bus);
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
+
+        //makes the ore generate
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
+
         ContainerTypeInit.CONTAINER_TYPES.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);

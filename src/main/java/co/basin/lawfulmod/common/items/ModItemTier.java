@@ -11,11 +11,11 @@ import net.minecraft.util.LazyValue;
 import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
-
-    Mana(4, 2500, 15.0F, 7.0F, 20, () -> {
-        return Ingredient.of(ItemInit.MANA_INGOT.get());
-    });
-
+    MANA(3, 100, 10.0F, 2.5F, 20,
+            () -> Ingredient.of(ItemInit.MANA_INGOT.get())),
+    EnrichedMana(5, 2500, 11.0F, 5.0F, 25,
+            () -> Ingredient.of(ItemInit.ENRICHED_MANA_INGOT.get()))
+    ;
 
     private final int level;
     private final int uses;

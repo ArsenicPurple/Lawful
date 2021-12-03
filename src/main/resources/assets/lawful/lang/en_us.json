@@ -23,5 +23,9 @@
 
   "item.lawful.mana_sword": "Mana Sword",
 
-  "itemGroup.lawfultab": "Lawful"
+  "itemGroup.lawfultab": "Lawful",
+
+  "enchantment.lawful.haste": "Haste",
+
+  "enchantment.lawful.regen": "Regen"
 }

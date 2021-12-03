@@ -5,17 +5,29 @@
   
   "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
 
-  "tooltip.lawful.mana_ingot_item": "Mana Ingot",
+  "item.lawful.mana_ingot_item": "Mana Ingot",
 
   "block.lawful.mana_wood": "Mana Wood",
 
-  "block.lawful.mana_iron_ore": "Mana Iron Ore"
-  
-  "title.lawful.pacting_table": "Pacting Table",
+  "block.lawful.mana_iron_ore": "Mana Iron Ore",
 
-  "death.attack.lawful.broken_covenant": "%1$s has broken their covenant"
+  "death.attack.lawful.broken_covenant": "%1$s has broken their covenant",
+
+  "item.lawful.mana_pickaxe": "Mana Pickaxe",
+
+  "item.lawful.mana_axe": "Mana Axe",
+
+  "item.lawful.mana_shovel": "Mana Shovel",
+
+  "item.lawful.mana_hoe": "Mana Hoe",
+
+  "item.lawful.mana_sword": "Mana Sword",
 
   "itemGroup.lawfultab": "Lawful",
 
+  "enchantment.lawful.haste": "Haste",
 
+  "itemGroup.lawfultab": "Lawful",
+  
+  "enchantment.lawful.regen": "Regen"
 }

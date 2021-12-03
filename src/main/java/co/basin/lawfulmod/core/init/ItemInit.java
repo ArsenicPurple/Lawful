@@ -26,37 +26,57 @@ public class ItemInit {
                     .food(Foods.CARROT)
             ));
 
+    // Tools
     public static final RegistryObject<BloodSoakedAxe> BLOOD_SOAKED_AXE = ITEMS.register("blood_soaked_axe",
             () -> new BloodSoakedAxe(ItemTier.NETHERITE, 3, -2.4F, (new Item.Properties())
                     .tab(LawfulMod.LAWFUL_GROUP)
                     .fireResistant()
             ));
 
-    public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot_item",
-            () -> new Item(new Item.Properties()
-                    .tab(ItemGroup.TAB_MATERIALS)
+    public static final RegistryObject<PickaxeItem> MANA_PICKAXE = ITEMS.register("mana_pickaxe", () -> new
+            PickaxeItem(ModItemTier.Mana, 0, -2.8F, (new Item.Properties())
+            .tab(LawfulMod.LAWFUL_GROUP)
             ));
+
+    public static final RegistryObject<AxeItem> MANA_AXE = ITEMS.register("mana_axe", () -> new
+            AxeItem(ModItemTier.Mana, 2, -1.8F, (new Item.Properties())
+            .tab(LawfulMod.LAWFUL_GROUP)
+            ));
+
+    public static final RegistryObject<ShovelItem> MANA_SHOVEL = ITEMS.register("mana_shovel", () -> new
+            ShovelItem(ModItemTier.Mana, 0, -3F, (new Item.Properties())
+            .tab(LawfulMod.LAWFUL_GROUP)
+            ));
+
+    public static final RegistryObject<SwordItem> MANA_SWORD = ITEMS.register("mana_sword", () -> new
+            SwordItem(ModItemTier.Mana, 4, -1F, (new Item.Properties())
+            .tab(LawfulMod.LAWFUL_GROUP)
+            ));
+
+    public static final RegistryObject<HoeItem> MANA_HOE = ITEMS.register("mana_hoe", () -> new
+            HoeItem(ModItemTier.Mana, 0, -3.5F, (new Item.Properties())
+            .tab(LawfulMod.LAWFUL_GROUP)
+            ));
+
+    public static final RegistryObject<Item> MANA_INGOT = ITEMS.register("mana_ingot_item",
+            () -> new Item(new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
 
     //Block Items
     public static final RegistryObject<BlockItem> MANA_WOOD = ITEMS.register("mana_wood",
-            () -> new BlockItem(BlockInit.MANA_WOOD.get(), new Item.Properties()
-                    .tab(ItemGroup.TAB_BUILDING_BLOCKS)
-            ));
+            () -> new BlockItem(BlockInit.MANA_WOOD.get(), new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
 
     public static final RegistryObject<BlockItem> MANA_IRON_ORE = ITEMS.register("mana_iron_ore",
-            () -> new BlockItem(BlockInit.MANA_IRON_ORE.get(), new Item.Properties()
-                    .tab(ItemGroup.TAB_MATERIALS)
-            ));
-
+            () -> new BlockItem(BlockInit.MANA_IRON_ORE.get(), new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
+  
     public static final RegistryObject<ConvenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
             () -> new ConvenantPaper(new Item.Properties()
-                    .tab(ItemGroup.TAB_MISC)
+                    .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     // Block Items
     public static final RegistryObject<BlockItem> PACTING_TABLE_BLOCK = ITEMS.register("pacting_table",
             () -> new BlockItem(BlockInit.PACTING_TABLE_BLOCK.get(), new Item.Properties()
-                    .tab(ItemGroup.TAB_MISC)
+                    .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<Item> MANA_BOOTS = ITEMS.register("mana_boots",

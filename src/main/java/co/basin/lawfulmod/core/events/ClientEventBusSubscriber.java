@@ -2,10 +2,13 @@ package co.basin.lawfulmod.core.events;
 
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.client.guis.PactingTableScreen;
+import co.basin.lawfulmod.client.render.tileentitiy.CovenantPedestalTileEntityRenderer;
 import co.basin.lawfulmod.core.init.ContainerTypeInit;
+import co.basin.lawfulmod.core.init.TileEntityTypeInit;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
@@ -15,5 +18,7 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         ScreenManager.register(ContainerTypeInit.PACTING_TABLE.get(), PactingTableScreen::new);
+
+        ClientRegistry.bindTileEntityRenderer(TileEntityTypeInit.COVENANT_PEDESTAL.get(), CovenantPedestalTileEntityRenderer::new);
     }
 }

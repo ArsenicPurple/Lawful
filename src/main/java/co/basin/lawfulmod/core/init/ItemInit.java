@@ -56,7 +56,7 @@ public class ItemInit {
 
     public static final RegistryObject<Item> MANA_POWDER = ITEMS.register("mana_powder",
             () -> new Item(new Item.Properties()
-                    .tab(ItemGroup.TAB_MATERIALS)
+                    .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<Item> ENRICHED_MANA_INGOT = ITEMS.register("enriched_mana_ingot",
@@ -94,11 +94,13 @@ public class ItemInit {
 
     //Block Items
     public static final RegistryObject<BlockItem> MANA_WOOD = ITEMS.register("mana_wood",
-            () -> new BlockItem(BlockInit.MANA_WOOD.get(), new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));
+            () -> new BlockItem(BlockInit.MANA_WOOD.get(), new Item.Properties()
+                    .tab(LawfulMod.LAWFUL_GROUP)
+            ));
 
     public static final RegistryObject<BlockItem> MANA_IRON_ORE = ITEMS.register("mana_iron_ore",
             () -> new BlockItem(BlockInit.MANA_IRON_ORE.get(), new Item.Properties()
-                    .tab(ItemGroup.TAB_MATERIALS)
+                    .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<BlockItem> ENRICHED_MANA_ORE = ITEMS.register("enriched_mana_ore",
@@ -116,6 +118,10 @@ public class ItemInit {
             () -> new BlockItem(BlockInit.PACTING_TABLE_BLOCK.get(), new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
             ));
+
+    public static final RegistryObject<BlockItem> COVENANT_PEDESTAL = ITEMS.register("covenant_pedestal",
+            () -> new BlockItem(BlockInit.COVENANT_PEDESTAL.get(), new Item.Properties()
+                    .tab(LawfulMod.LAWFUL_GROUP)
 
     public static final RegistryObject<Item> MANA_BOOTS = ITEMS.register("mana_boots",
             () -> new ArmorItem(ModArmorMaterial.MANA, EquipmentSlotType.FEET, new Item.Properties()

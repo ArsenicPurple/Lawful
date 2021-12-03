@@ -1,13 +1,14 @@
 package co.basin.lawfulmod.common.containers;
 
+import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.blocks.PactingTableBlock;
-import co.basin.lawfulmod.common.items.ConvenantPaper;
+import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.core.init.ContainerTypeInit;
+import co.basin.lawfulmod.core.util.PactUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.AbstractRepairContainer;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IWorldPosCallable;
@@ -48,11 +49,18 @@ public class PactingContainer extends AbstractRepairContainer {
 
     @Override
     public void createResult() {
-        ItemStack result = this.inputSlots.getItem(0).copy();
         this.cost.set(1);
-        if (result.getItem() instanceof ConvenantPaper) {
-            ((ConvenantPaper) result.getItem()).setPactItem(this.inputSlots.getItem(1).getItem());
-            ((ConvenantPaper) result.getItem()).setActive();
+        ItemStack result = this.inputSlots.getItem(0).copy();
+        ItemStack pactItem = this.inputSlots.getItem(1);
+        if (result.getItem() instanceof CovenantPaper) {
+            int pactType;
+            if ((pactType = PactUtils.isValidPactItem(pactItem)) == -1) { return; }
+            CovenantPaper itemStack = ((CovenantPaper) result.getItem());
+            itemStack.setPactType(result.getStack(), pactType);
+            itemStack.setActive(result.getStack(), false);
+            // LOG
+            LawfulMod.LOGGER.debug("Pact Type Set To: " + pactType);
+            //
             this.resultSlots.setItem(0, result.getStack());
         }
     }

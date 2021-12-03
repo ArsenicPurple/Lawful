@@ -33,7 +33,6 @@ public class SoulboundItem extends Item {
     }
 
     private static final String TAG_PLAYER_ID = "playerUUID";
-    private static final String TAG_IS_ACTIVE = "isActive";
 
     @Override
     @OnlyIn(Dist.CLIENT)
@@ -110,19 +109,6 @@ public class SoulboundItem extends Item {
             }
         }
         return null;
-    }
-
-    public boolean getIsActive(ItemStack stack) {
-        if (ItemNBTUtil.verifyExistance(stack, TAG_IS_ACTIVE)) {
-            try {
-                return ItemNBTUtil.getBoolean(stack, TAG_IS_ACTIVE, false);
-            } catch (IllegalArgumentException ex) { // Bad tag
-                ItemNBTUtil.removeEntry(stack, TAG_IS_ACTIVE);
-            }
-        }
-
-        stack.getOrCreateTag();
-        return false;
     }
 
     public boolean hasUUID(ItemStack stack) {

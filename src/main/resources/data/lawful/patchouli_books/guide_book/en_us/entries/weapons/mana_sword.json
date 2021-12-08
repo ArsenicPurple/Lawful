@@ -1,0 +1,16 @@
+{
+  "name": "Mana Sword",
+  "icon": "lawful:mana_sword",
+  "category": "lawful:weapons",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A sword made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_sword"
+      "title": "Mana Sword"
+    }
+    ]
+}

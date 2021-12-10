@@ -48,8 +48,25 @@
   "itemGroup.lawfultab": "Lawful",
 
   "enchantment.lawful.haste": "Haste",
+  "enchantment.lawful.regen": "Regen",
 
+  "item.minecraft.potion.effect.super_strength": "Potion of Super Strength",
+  "item.minecraft.potion.effect.long_super_strength": "Potion of Super Strength",
+  "item.minecraft.splash_potion.effect.super_strength": "Splash Potion of Super Strength",
+  "item.minecraft.splash_potion.effect.long_super_strength": "Splash Potion of Super Strength",
+  "item.minecraft.lingering_potion.effect.super_strength": "Lingering Potion of Super Strength",
+  "item.minecraft.lingering_potion.effect.long_super_strength": "Lingering Potion of Super Strength",
+  "item.minecraft.tipped_arrow.effect.super_strength": "Arrow of Super Strength",
+  "item.minecraft.tipped_arrow.effect.long_super_strength": "Arrow of Super Strength",
+
+  "item.minecraft.potion.effect.nausea": "Potion of Nausea",
+  "item.minecraft.potion.effect.useful_nausea": "Potion of Nauseous Luck",
+  "item.minecraft.splash_potion.effect.nausea": "Splash Potion of Nausea",
+  "item.minecraft.splash_potion.effect.useful_nausea": "Splash Potion of Nauseous Luck",
+  "item.minecraft.lingering_potion.effect.nausea": "Lingering Potion of Nausea",
+  "item.minecraft.lingering_potion.effect.useful_nausea": "Lingering Nauseous Luck",
+  "item.minecraft.tipped_arrow.effect.nausea": "Arrow of Nausea",
+  "item.minecraft.tipped_arrow.effect.useful_nausea": "Arrow of Nauseous Luck"
+  
   "itemGroup.lawfultab": "Lawful",
-
-  "enchantment.lawful.regen": "Regen"
 }

@@ -1,10 +1,6 @@
 package co.basin.lawfulmod;
 
-import co.basin.lawfulmod.core.init.BlockInit;
-import co.basin.lawfulmod.core.init.ContainerTypeInit;
-import co.basin.lawfulmod.core.init.EnchantmentInit;
-import co.basin.lawfulmod.core.init.ItemInit;
-import co.basin.lawfulmod.core.init.TileEntityTypeInit;
+import co.basin.lawfulmod.core.init.*;
 import co.basin.lawfulmod.core.world.OreGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -35,6 +31,8 @@ public class LawfulMod
         EnchantmentInit.ENCHANTMENTS.register(bus);
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
+        PotionInit.POTIONS.register(bus);
+
 
         //makes the ore generate
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
@@ -46,7 +44,7 @@ public class LawfulMod
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-
+        PotionInit.addPotionRecipes();
     }
 
     /**

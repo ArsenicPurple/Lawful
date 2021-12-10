@@ -6,6 +6,7 @@ import co.basin.lawfulmod.common.items.BloodSoakedAxe;
 import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.common.items.ModItemTier;
 import co.basin.lawfulmod.common.items.ModArmorMaterial;
+import co.basin.lawfulmod.common.items.*;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;

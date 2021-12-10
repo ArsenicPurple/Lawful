@@ -47,7 +47,13 @@ public class LawfulMod
         PotionInit.addPotionRecipes();
     }
 
+    /**
+     * Extension of ItemGroup to create a new creative tab
+     */
     public static class LawfulGroup extends ItemGroup {
+        /**
+         * @param label Name of the ItemGroup
+         */
         public LawfulGroup(String label) {
             super(label);
         }

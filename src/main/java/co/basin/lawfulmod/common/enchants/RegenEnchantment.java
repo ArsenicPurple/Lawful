@@ -28,13 +28,25 @@ public class RegenEnchantment extends Enchantment{
     public int getMinLevel() {
         return 1;
     }
+    /*create an event bus to "subscribe" to - code will run every time that event triggers
+     * event triggers every ingame tick, or 20 times a second
+     */
     @Mod.EventBusSubscriber(modid = LawfulMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
     public static class RegenEquipped{
         @SubscribeEvent
+        /**
+         * This method will trigger once per tick to check if the player is wearing an item with the Regen enchantment
+         * if so, the player will get Regen 1, or Regen 2, depending on th level of the enchantment
+         * @param event a PlayerTickEvent
+         */
         public static void doStuff(TickEvent.PlayerTickEvent event){
+            //Player who will have items checked
             PlayerEntity playerIn = event.player;
+            //Regen effect
             Effect test =  Effect.byId(10);
+            //Instance of Regen 1, lasting 1 second
             EffectInstance healy = new EffectInstance(test,20);
+            //Instance of Regen 2, lasting 1 second
             EffectInstance healy2 = new EffectInstance(test, 20, 1);
 
             if(playerIn.getItemBySlot(EquipmentSlotType.HEAD).isEnchanted() || playerIn.getItemBySlot(EquipmentSlotType.CHEST).isEnchanted()

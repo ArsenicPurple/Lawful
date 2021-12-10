@@ -1,8 +1,8 @@
 {
   "item.lawful.example_item": "The Best Example Item",
-  
+
   "block.lawful.pacting_table": "Pacting Table",
-  
+
   "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
 
   "item.lawful.mana_ingot_item": "Mana Ingot",
@@ -10,13 +10,13 @@
   "block.lawful.mana_wood": "Mana Wood",
 
   "block.lawful.mana_iron_ore": "Mana Iron Ore",
-  
+
   "title.lawful.pacting_table": "Pacting Table",
 
   "death.attack.lawful.broken_covenant": "%1$s has broken their covenant",
 
   "tooltip.lawful.unbound": "Bound to \u00A76Unknown",
-  
+
   "tooltip.lawful.bound_to": "Bound to \u00A76%s",
 
   "block.lawful.enriched_mana_ore": "Enriched Mana Ore",
@@ -48,7 +48,6 @@
   "itemGroup.lawfultab": "Lawful",
 
   "enchantment.lawful.haste": "Haste",
-
   "enchantment.lawful.regen": "Regen",
 
   "item.minecraft.potion.effect.super_strength": "Potion of Super Strength",
@@ -68,5 +67,6 @@
   "item.minecraft.lingering_potion.effect.useful_nausea": "Lingering Nauseous Luck",
   "item.minecraft.tipped_arrow.effect.nausea": "Arrow of Nausea",
   "item.minecraft.tipped_arrow.effect.useful_nausea": "Arrow of Nauseous Luck"
-
+  
+  "itemGroup.lawfultab": "Lawful",
 }

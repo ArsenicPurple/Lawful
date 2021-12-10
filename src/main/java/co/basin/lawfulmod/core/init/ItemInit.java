@@ -3,7 +3,7 @@ package co.basin.lawfulmod.core.init;
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.items.AdvancedItem;
 import co.basin.lawfulmod.common.items.BloodSoakedAxe;
-import co.basin.lawfulmod.common.items.ConvenantPaper;
+import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.common.items.ModItemTier;
 import co.basin.lawfulmod.common.items.ModArmorMaterial;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -65,27 +65,27 @@ public class ItemInit {
             ));
 
     public static final RegistryObject<PickaxeItem> MANA_PICKAXE = ITEMS.register("mana_pickaxe", () -> new
-            PickaxeItem(ModItemTier.Mana, 0, -2.8F, (new Item.Properties())
+            PickaxeItem(ModItemTier.MANA, 0, -2.8F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<AxeItem> MANA_AXE = ITEMS.register("mana_axe", () -> new
-            AxeItem(ModItemTier.Mana, 2, -1.8F, (new Item.Properties())
+            AxeItem(ModItemTier.MANA, 2, -1.8F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<ShovelItem> MANA_SHOVEL = ITEMS.register("mana_shovel", () -> new
-            ShovelItem(ModItemTier.Mana, 0, -3F, (new Item.Properties())
+            ShovelItem(ModItemTier.MANA, 0, -3F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<SwordItem> MANA_SWORD = ITEMS.register("mana_sword", () -> new
-            SwordItem(ModItemTier.Mana, 4, -1F, (new Item.Properties())
+            SwordItem(ModItemTier.MANA, 4, -1F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<HoeItem> MANA_HOE = ITEMS.register("mana_hoe", () -> new
-            HoeItem(ModItemTier.Mana, 0, -3.5F, (new Item.Properties())
+            HoeItem(ModItemTier.MANA, 0, -3.5F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
@@ -108,8 +108,8 @@ public class ItemInit {
                     .tab(ItemGroup.TAB_MATERIALS)
             ));
   
-    public static final RegistryObject<ConvenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
-            () -> new ConvenantPaper(new Item.Properties()
+    public static final RegistryObject<CovenantPaper> COVENANT_PAPER = ITEMS.register("covenant_paper",
+            () -> new CovenantPaper(new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
@@ -122,6 +122,7 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> COVENANT_PEDESTAL = ITEMS.register("covenant_pedestal",
             () -> new BlockItem(BlockInit.COVENANT_PEDESTAL.get(), new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
+            ));
 
     public static final RegistryObject<Item> MANA_BOOTS = ITEMS.register("mana_boots",
             () -> new ArmorItem(ModArmorMaterial.MANA, EquipmentSlotType.FEET, new Item.Properties()

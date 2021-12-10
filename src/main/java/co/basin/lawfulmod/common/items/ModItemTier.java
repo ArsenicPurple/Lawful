@@ -7,11 +7,20 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
-
 import java.util.function.Supplier;
 
+/**
+ * Creation of an item tier
+ */
 public enum ModItemTier implements IItemTier {
-    MANA(3, 100, 10.0F, 2.5F, 20,
+    /**
+     * Level is the relative level of the item, this prevents some item tiers from mining some blocks
+     * Uses is the durability value of the item
+     * Speed is the mining speed of the item
+     * Damage is how much damage the item does
+     * Enchantment value raises the average level, and rarity, of enchantments you get when enchanting the item
+     */
+    Mana(3, 100, 10.0F, 2.5F, 20,
             () -> Ingredient.of(ItemInit.MANA_INGOT.get())),
     EnrichedMana(5, 2500, 11.0F, 5.0F, 25,
             () -> Ingredient.of(ItemInit.ENRICHED_MANA_INGOT.get()))

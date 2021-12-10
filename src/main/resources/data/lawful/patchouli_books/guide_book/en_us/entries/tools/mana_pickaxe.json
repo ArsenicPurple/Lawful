@@ -1,0 +1,16 @@
+{
+  "name": "Mana Pickaxe",
+  "icon": "lawful:mana_pickaxe",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A pickaxe made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_pickaxe",
+      "title": "Mana Pickaxe"
+    }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Mana Shovel",
+  "icon": "lawful:mana_shovel",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A shovel made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_shovel",
+      "title": "Mana Shovel"
+    }
+    ]
+}

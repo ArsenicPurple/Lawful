@@ -1,0 +1,66 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true,
+			"animation_length": 3.6,
+			"bones": {
+				"Cat": {
+					"position": {
+						"vector": [0, "math.sin(query.anim_time * 50) * 2", 0]
+					}
+				},
+				"Tail": {
+					"rotation": {
+						"vector": ["math.sin(query.anim_time * 50) * 20 - 20", 0, 0]
+					}
+				}
+			}
+		},
+		"attack": {
+			"animation_length": 1.04,
+			"override_previous_animation": true,
+			"bones": {
+				"TopLeftLeg": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.16": {
+							"vector": [-50, 0, -40],
+							"easing": "linear"
+						},
+						"0.52": {
+							"vector": [-18.75, 0, 0],
+							"easing": "easeInBack"
+						},
+						"1.04": {
+							"vector": [0, 0, 0],
+							"easing": "easeInBack"
+						}
+					}
+				}
+			}
+		},
+		"armbob": {
+			"animation_length": 2.08,
+			"bones": {
+				"TopLegs": {
+					"rotation": {
+						"0.0": {
+							"vector": [20, 0, 0]
+						},
+						"1.04": {
+							"vector": [25, 0, 0],
+							"easing": "easeInBack"
+						},
+						"2.08": {
+							"vector": [20, 0, 0],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		}
+	}
+}

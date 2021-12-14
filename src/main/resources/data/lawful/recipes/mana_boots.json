@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "l l",
+        "l l"
+    ],
+    "key": {
+        "l": {
+            "item": "lawful:mana_ingot_item"
+        }
+    },
+    "result": {
+        "item": "lawful:mana_boots",
+        "count": 1
+    }
+}

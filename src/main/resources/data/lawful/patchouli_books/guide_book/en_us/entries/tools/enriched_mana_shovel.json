@@ -1,0 +1,16 @@
+{
+  "name": "Enriched Mana Shovel",
+  "icon": "lawful:enriched_mana_shovel",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A shovel made of enriched mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:enriched_mana_shovel",
+      "title": "Enriched Mana Shovel"
+    }
+    ]
+}

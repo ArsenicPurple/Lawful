@@ -66,27 +66,27 @@ public class ItemInit {
             ));
 
     public static final RegistryObject<PickaxeItem> MANA_PICKAXE = ITEMS.register("mana_pickaxe", () -> new
-            PickaxeItem(ModItemTier.MANA, 0, -2.8F, (new Item.Properties())
+            PickaxeItem(ModItemTier.Mana, 0, -2.8F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<AxeItem> MANA_AXE = ITEMS.register("mana_axe", () -> new
-            AxeItem(ModItemTier.MANA, 2, -1.8F, (new Item.Properties())
+            AxeItem(ModItemTier.Mana, 2, -1.8F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<ShovelItem> MANA_SHOVEL = ITEMS.register("mana_shovel", () -> new
-            ShovelItem(ModItemTier.MANA, 0, -3F, (new Item.Properties())
+            ShovelItem(ModItemTier.Mana, 0, -3F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<SwordItem> MANA_SWORD = ITEMS.register("mana_sword", () -> new
-            SwordItem(ModItemTier.MANA, 4, -1F, (new Item.Properties())
+            SwordItem(ModItemTier.Mana, 4, -1F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     public static final RegistryObject<HoeItem> MANA_HOE = ITEMS.register("mana_hoe", () -> new
-            HoeItem(ModItemTier.MANA, 0, -3.5F, (new Item.Properties())
+            HoeItem(ModItemTier.Mana, 0, -3.5F, (new Item.Properties())
             .tab(LawfulMod.LAWFUL_GROUP)
             ));
 

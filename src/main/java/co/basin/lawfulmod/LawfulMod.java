@@ -41,6 +41,8 @@ public class LawfulMod
         EnchantmentInit.ENCHANTMENTS.register(bus);
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
+        PotionInit.POTIONS.register(bus);
+
 
         //makes the ore generate
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
@@ -60,9 +62,17 @@ public class LawfulMod
 
     private void setup(final FMLCommonSetupEvent event) {
         CHANNEL_INSTANCE.registerMessage(0, MeowlzebubShieldPKT.class, MeowlzebubShieldPKT::encode, MeowlzebubShieldPKT::new, MeowlzebubShieldPKT::handle);
+
+        PotionInit.addPotionRecipes();
     }
 
+    /**
+     * Extension of ItemGroup to create a new creative tab
+     */
     public static class LawfulGroup extends ItemGroup {
+        /**
+         * @param label Name of the ItemGroup
+         */
         public LawfulGroup(String label) {
             super(label);
         }

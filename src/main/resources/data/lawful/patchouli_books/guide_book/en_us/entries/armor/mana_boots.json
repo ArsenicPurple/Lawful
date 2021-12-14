@@ -1,0 +1,16 @@
+{
+  "name": "Mana Boots",
+  "icon": "lawful:mana_boots",
+  "category": "lawful:armor",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Boots made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_boots",
+      "title": "Mana Boots"
+    }
+    ]
+}

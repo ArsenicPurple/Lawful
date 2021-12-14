@@ -1,0 +1,16 @@
+{
+  "name": "Enriched Mana Pickaxe",
+  "icon": "lawful:enriched_mana_pickaxe",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A pickaxe made of enriched mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:enriched_mana_pickaxe",
+      "title": "Enriched Mana Pickaxe"
+    }
+    ]
+}

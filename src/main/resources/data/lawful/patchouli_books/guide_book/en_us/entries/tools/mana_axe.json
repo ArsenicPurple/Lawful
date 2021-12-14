@@ -1,0 +1,16 @@
+{
+  "name": "Mana Axe",
+  "icon": "lawful:mana_axe",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "An axe made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_axe",
+      "title": "Mana Axe"
+    }
+    ]
+}

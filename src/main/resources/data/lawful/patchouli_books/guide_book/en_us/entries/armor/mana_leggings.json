@@ -1,0 +1,16 @@
+{
+  "name": "Mana Leggings",
+  "icon": "lawful:mana_leggings",
+  "category": "lawful:armor",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Leggings made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_leggings",
+      "title": "Mana Leggings"
+    }
+    ]
+}

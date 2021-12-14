@@ -1,0 +1,16 @@
+{
+  "name": "Mana Chestplate",
+  "icon": "lawful:mana_chestplate",
+  "category": "lawful:armor",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Chestplate made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_chestplate",
+      "title": "Mana Chestplate"
+    }
+    ]
+}

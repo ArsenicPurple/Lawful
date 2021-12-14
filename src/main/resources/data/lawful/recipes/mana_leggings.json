@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "lll",
+        "l l",
+        "l l"
+    ],
+    "key": {
+        "l": {
+            "item": "lawful:mana_ingot_item"
+        }
+    },
+    "result": {
+        "item": "lawful:mana_leggings",
+        "count": 1
+    }
+}

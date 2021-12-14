@@ -1,0 +1,16 @@
+{
+  "name": "Enriched Mana Ingot",
+  "icon": "lawful:enriched_mana_ingot",
+  "category": "lawful:materials",
+  "pages": [
+    {
+      "type": "text",
+      "text": "An enriched mana infused ingot"
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:enriched_mana_ingot",
+      "title": "Mana Ingot"
+    }
+    ]
+}

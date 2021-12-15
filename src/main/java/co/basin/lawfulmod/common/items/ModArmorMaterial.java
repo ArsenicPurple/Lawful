@@ -3,6 +3,7 @@ package co.basin.lawfulmod.common.items;
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.core.init.ItemInit;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
@@ -16,7 +17,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
 
-    MANA("mana", 7, new int[] { 2, 5, 6, 2 }, 12,
+    MANA("mana", 20, new int[] { 2, 5, 6, 2 }, 12,
             null, 1.0f, 0.0f, () -> {
         return Ingredient.of(ItemInit.MANA_INGOT.get());
     });
@@ -44,40 +45,19 @@ public enum ModArmorMaterial implements IArmorMaterial {
         this.repairMaterial = new LazyValue<>(repairMaterial);
     }
 
-
-    public int getDurability(EquipmentSlotType slotIn) {
-        return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
-    }
-
-    public int getDamageReductionAmount(EquipmentSlotType slotIn) {
-        return this.damageReductionAmountArray[slotIn.getIndex()];
-    }
-
-    public int getEnchantability() {
-        return this.enchantability;
-    }
-
-    public SoundEvent getSoundEvent() {
-        return this.soundEvent;
-    }
-
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.get();
-    }
-
     @Override
     public int getDurabilityForSlot(EquipmentSlotType p_200896_1_) {
-        return 0;
+        return MAX_DAMAGE_ARRAY[p_200896_1_.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
     public int getDefenseForSlot(EquipmentSlotType p_200902_1_) {
-        return 0;
+        return this.damageReductionAmountArray[p_200902_1_.getIndex()];
     }
 
     @Override
     public int getEnchantmentValue() {
-        return 0;
+        return this.enchantability;
     }
 
     @Override
@@ -87,7 +67,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return null;
+        return this.repairMaterial.get();
     }
 
     @OnlyIn(Dist.CLIENT)

@@ -80,7 +80,7 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
                     point = point.yRot(this.level.getGameTime() % 360);
                     point = point.zRot(this.level.getGameTime() % 360);
                     Vector3d pos = this.position().add(point);
-                    ParticleUtil.spawnStillParticles((ClientWorld) this.level, ParticleTypes.HEART, pos.x, pos.y + 1, pos.z);
+                    ParticleUtil.spawnStillParticles((ClientWorld) this.level, ParticleTypes.CURRENT_DOWN, pos.x, pos.y + 1, pos.z);
                 }
             }
         }
@@ -158,27 +158,27 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
     public void performRangedAttack(LivingEntity entity, float damage) {
         int rand = this.random.nextInt(100);
         if (rand < 10) {
-            performDefenseSpell(entity, damage);
+            performDefenseSpell();
             return;
         }
 
         if (rand < 20){
-            performHeavyAttackSpell(entity, damage);
+            performHeavyAttackSpell();
             return;
         }
 
-        performLightAttackSpell(entity, damage);
+        performLightAttackSpell();
     }
 
-    private void performLightAttackSpell(LivingEntity entity, float damage) {
-        MagicProjectileEntity projectile = new MagicProjectileEntity(entity, this.level)
-                .setDamage((int) damage)
+    private void performLightAttackSpell() {
+        MagicProjectileEntity projectile = new MagicProjectileEntity(this, this.level)
+                .setDamage(4)
                 .setParticle(ParticleTypes.FLAME);
-        projectile.shoot(entity.getLookAngle(), 2, 1);
+        projectile.shoot(this.getLookAngle(), 2, 1);
         this.level.addFreshEntity(projectile);
     }
 
-    private void performDefenseSpell(LivingEntity entity, float damage) {
+    private void performDefenseSpell() {
         this.hasShield = true;
         shieldHealth = maxShieldHealth;
         if (!this.level.isClientSide()) {
@@ -186,14 +186,14 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
         }
     }
 
-    private void performHeavyAttackSpell(LivingEntity entity, float damage) {
+    private void performHeavyAttackSpell() {
         final Vector3d[] points = {
                 new Vector3d(1, 0, 0),
                 new Vector3d(0, 0, 1),
                 new Vector3d(-1, 0, 0),
                 new Vector3d(0, 0, -1),
         };
-        MagicProjectileEntity projectile = new MagicProjectileEntity(entity.position().add(0, 0.5, 0), this.level)
+        MagicProjectileEntity projectile = new MagicProjectileEntity(this.position().add(0, 0.5, 0), this.level)
                 .setDamage(13)
                 .setParticle(ParticleTypes.CLOUD)
                 .setLifetime(100)
@@ -208,7 +208,7 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
                     return true;
                 });
         projectile.setNoGravity(true);
-        projectile.shoot(entity.getLookAngle(), 0.25F, 1);
+        projectile.shoot(this.getLookAngle(), 0.25F, 1);
         this.level.addFreshEntity(projectile);
     }
 }

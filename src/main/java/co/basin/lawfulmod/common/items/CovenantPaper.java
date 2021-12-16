@@ -44,8 +44,8 @@ public class CovenantPaper extends SoulboundItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        super.appendHoverText(stack, world, tooltip, flagIn);
+    public ITextComponent getName(ItemStack stack) {
+        return getPactType(stack) != -1 ? PactUtils.getName(getPactType(stack)) : super.getName(stack);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class CovenantPaper extends SoulboundItem {
 
             // Skips the tick if the Covenant has recently been broken or the buff was recently applied
             if (world.getGameTime() - getLastTickCovenantBroke(stack) < 600) { return; }
-            if (world.getGameTime() - getLastTickBuffApplied(stack) < 180) { return; }
+            if (world.getGameTime() - getLastTickBuffApplied(stack) < 160) { return; }
 
             EffectInstance[] instances = PactUtils.getPactEffects(getPactType(stack));
             if (instances == null) { return; }

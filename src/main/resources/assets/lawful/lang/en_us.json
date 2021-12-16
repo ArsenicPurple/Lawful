@@ -47,6 +47,14 @@
 
   "itemGroup.lawfultab": "Lawful",
 
+  "item.lawful.covenant_paper": "Covenant Paper",
+
+  "covenant.lawful.movement": "Covenant of Movement",
+  "covenant.lawful.damage": "Covenant of Damage",
+  "covenant.lawful.haggling": "Covenant of Swindling",
+  "covenant.lawful.immortality": "Covenant of Immortality",
+  "covenant.lawful.vitality": "Covenant of Vitality",
+
   "enchantment.lawful.haste": "Haste",
   "enchantment.lawful.regen": "Regen",
 

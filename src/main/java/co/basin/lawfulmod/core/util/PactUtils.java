@@ -5,6 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
@@ -22,7 +24,7 @@ public class PactUtils {
     }
 
     public static boolean isItemBreakingCovenant(ItemStack stack, int type) {
-        return stack != null && !stack.isEmpty() && stack.getItem() instanceof CovenantPaper && pactPredicates.get(type).test(stack);
+        return stack != null && !stack.isEmpty() && (stack.getItem() instanceof CovenantPaper || pactPredicates.get(type).test(stack));
     }
 
     public static EffectInstance[] getPactEffects(int type) {
@@ -36,13 +38,24 @@ public class PactUtils {
         }
     }
 
+    public static ITextComponent getName(int type) {
+        switch (type) {
+            case 0: return new TranslationTextComponent("covenant.lawful.movement");
+            case 1: return new TranslationTextComponent("covenant.lawful.damage");
+            case 2: return new TranslationTextComponent("covenant.lawful.haggling");
+            case 3: return new TranslationTextComponent("covenant.lawful.immortality");
+            case 4: return new TranslationTextComponent("covenant.lawful.vitality");
+            default: return null;
+        }
+    }
+
     private static ArrayList<Predicate<ItemStack>> generatePredicates() {
         ArrayList<Predicate<ItemStack>> predicates = new ArrayList<>();
 
         predicates.add((stack) -> Items.ELYTRA.equals(stack.getItem()) || Items.FIREWORK_ROCKET.equals(stack.getItem()));
         predicates.add((stack) -> stack.isEdible() && stack.getItem().getFoodProperties().getNutrition() > 1.5);
         predicates.add((stack) -> Items.SHULKER_BOX.equals(stack.getItem()));
-        predicates.add(ItemStack::isEnchanted);
+        predicates.add((stack -> stack.isEnchanted()));
         predicates.add((stack) -> Items.SHIELD.equals(stack.getItem()));
 
         return predicates;

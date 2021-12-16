@@ -53,9 +53,9 @@ public class PactUtils {
         ArrayList<Predicate<ItemStack>> predicates = new ArrayList<>();
 
         predicates.add((stack) -> Items.ELYTRA.equals(stack.getItem()) || Items.FIREWORK_ROCKET.equals(stack.getItem()));
-        predicates.add((stack) -> stack.isEdible() && stack.getItem().getFoodProperties().getNutrition() > 1.5);
+        predicates.add((stack) -> stack.isEdible() && stack.getItem().getFoodProperties().getNutrition() > 3);
         predicates.add((stack) -> Items.SHULKER_BOX.equals(stack.getItem()));
-        predicates.add((stack -> stack.isEnchanted()));
+        predicates.add((ItemStack::isEnchanted));
         predicates.add((stack) -> Items.SHIELD.equals(stack.getItem()));
 
         return predicates;

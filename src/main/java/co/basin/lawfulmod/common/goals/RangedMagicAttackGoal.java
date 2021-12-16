@@ -5,6 +5,7 @@ import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.util.math.vector.Vector3d;
 
 public class RangedMagicAttackGoal<T extends MonsterEntity & IRangedAttackMob> extends Goal {
     private final T mob;
@@ -66,6 +67,8 @@ public class RangedMagicAttackGoal<T extends MonsterEntity & IRangedAttackMob> e
                 this.mob.getNavigation().stop();
                 ++this.strafingTime;
             } else {
+                //Vector3d pos =
+                //this.mob.getNavigation().
                 this.mob.getNavigation().moveTo(livingentity, this.speedModifier);
                 this.strafingTime = -1;
             }

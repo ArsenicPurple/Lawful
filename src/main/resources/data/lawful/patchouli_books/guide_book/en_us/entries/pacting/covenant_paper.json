@@ -1,0 +1,16 @@
+{
+  "name": "Covenant Paper",
+  "icon": "lawful:covenant_paper",
+  "category": "lawful:pacting",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Used for pacting"
+    },
+    {
+      "type": "smelting",
+      "recipe": "lawful:covenant_paper",
+      "title": "Covenant Paper"
+    }
+    ]
+}

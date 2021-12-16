@@ -1,0 +1,16 @@
+{
+  "name": "Covenant Pedestal",
+  "icon": "lawful:covenant_pedestal",
+  "category": "lawful:pacting",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Used for pacting"
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:covenant_pedestal",
+      "title": "Covenant Pedestal"
+    }
+    ]
+}

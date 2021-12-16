@@ -1,0 +1,28 @@
+{
+  "name": "Covenant Pedestal",
+  "icon": "lawful:covenant_pedestal",
+  "category": "lawful:rituals",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Used for pacting"
+    },
+    {
+      "type": "multiblock",
+      "text": "The setup for the covenant pedestal",
+        "multiblock": {
+        "pattern": [
+          ["C   C", "     ", "     ", "     ", "C   C"],
+          ["C   C", "     ", "     ", "     ", "C   C"],
+          ["A   A", "     ", "  0  ", "     ", "A   A"]
+        ],
+          "mapping": {
+            "C": "minecraft:crying_obsidian",
+            "A": "minecraft:respawn_anchor",
+            "0": "lawful:covenant_pedestal"
+          }
+      }
+    }
+  ]
+}
+

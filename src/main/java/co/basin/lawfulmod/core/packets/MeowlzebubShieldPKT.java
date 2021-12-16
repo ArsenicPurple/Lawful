@@ -2,7 +2,6 @@ package co.basin.lawfulmod.core.packets;
 
 import co.basin.lawfulmod.common.entities.MeowlzebubEntity;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;

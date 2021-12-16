@@ -7,8 +7,6 @@ import co.basin.lawfulmod.core.util.ParticleUtil;
 import co.basin.lawfulmod.core.util.UtilArrays;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.ParticleTypes;
@@ -80,8 +78,8 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
             return;
         }
         CovenantPaper covenantPaper = (CovenantPaper) ritualItem.getItem();
+        covenantPaper.setTogglable(ritualItem);
         covenantPaper.setActive(ritualItem, true);
-        covenantPaper.setCanBeActive(ritualItem);
     }
 
     public float getRitualStage() {

@@ -38,11 +38,11 @@ public class LawfulMod
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
         bus.addListener(this::createAttributes);
-        EnchantmentInit.ENCHANTMENTS.register(bus);
+
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
         PotionInit.POTIONS.register(bus);
-
+        EnchantmentInit.ENCHANTMENTS.register(bus);
 
         //makes the ore generate
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);

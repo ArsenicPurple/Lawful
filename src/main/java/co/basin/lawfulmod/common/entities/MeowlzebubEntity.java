@@ -1,6 +1,5 @@
 package co.basin.lawfulmod.common.entities;
 
-import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.goals.RangedMagicAttackGoal;
 import co.basin.lawfulmod.core.packets.MeowlzebubShieldPKT;
 import co.basin.lawfulmod.core.util.PacketUtil;
@@ -19,7 +18,6 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -29,15 +27,6 @@ import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
-
-import java.util.logging.Logger;
-
-/** TODO
- * Add Advancements
- *
- * Finish Meowlzebub Animations and AI
- * Finish Lukki Animation and AI
- */
 
 public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRangedAttackMob {
     private AnimationFactory factory = new AnimationFactory(this);
@@ -55,6 +44,7 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
 
     public static AttributeModifierMap.MutableAttribute createAttributes() {
         return MonsterEntity.createMonsterAttributes()
+                .add(Attributes.MAX_HEALTH, 50.0D)
                 .add(Attributes.FOLLOW_RANGE, 15.0D)
                 .add(Attributes.MOVEMENT_SPEED, 1.23F)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D);
@@ -166,19 +156,18 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
 
     @Override
     public void performRangedAttack(LivingEntity entity, float damage) {
-        performLightAttackSpell(this, damage);
-//        int rand = this.random.nextInt(100);
-//        if (rand < 1) {
-//            performDefenseSpell(entity, damage);
-//            return;
-//        }
-//
-//        if (rand < 20){
-//            performHeavyAttackSpell(entity, damage);
-//            return;
-//        }
-//
-//        performLightAttackSpell(entity, damage);
+        int rand = this.random.nextInt(100);
+        if (rand < 10) {
+            performDefenseSpell(entity, damage);
+            return;
+        }
+
+        if (rand < 20){
+            performHeavyAttackSpell(entity, damage);
+            return;
+        }
+
+        performLightAttackSpell(entity, damage);
     }
 
     private void performLightAttackSpell(LivingEntity entity, float damage) {
@@ -218,7 +207,7 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
                     return true;
                 });
         projectile.setNoGravity(true);
-        projectile.shoot(entity.getLookAngle(), 0.5F, 1);
+        projectile.shoot(entity.getLookAngle(), 0.25F, 1);
         this.level.addFreshEntity(projectile);
     }
 }

@@ -27,7 +27,7 @@ Some code taken from the Botania Mod
 Link Here: https://github.com/Vazkii/Botania/blob/8f0eb1340e9684e9143879958bb7b35ce39b095e/src/main/java/vazkii/botania/common/core/helper/ItemNBTHelper.java#L25
  */
 
-public class SoulboundItem extends Item {
+public abstract class SoulboundItem extends Item {
     public SoulboundItem(Properties properties) {
         super(properties);
     }
@@ -81,16 +81,23 @@ public class SoulboundItem extends Item {
         return ActionResult.success(playerIn.getItemInHand(handIn));
     }
 
+    /**
+     * Checks where the item is in the inventory of the player it is bound to
+     * @return ^
+     */
+    public abstract boolean isTickingInBoundPlayer(ItemStack stack, PlayerEntity player);
+
     @Override
     public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        if (!worldIn.isClientSide() && entityIn instanceof PlayerEntity) {
-            if (stack.isEmpty()) {
-                return;
-            }
+        if (worldIn.isClientSide() ) { return; }
+        if (!(entityIn instanceof PlayerEntity)) { return; }
 
-            if (!hasUUID(stack)) {
-                bindToUUID(entityIn.getUUID(), stack);
-            }
+        if (stack.isEmpty()) {
+            return;
+        }
+
+        if (!hasUUID(stack)) {
+            bindToUUID(entityIn.getUUID(), stack);
         }
 
         super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);

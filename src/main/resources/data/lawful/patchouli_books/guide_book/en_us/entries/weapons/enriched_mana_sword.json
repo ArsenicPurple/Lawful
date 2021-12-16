@@ -1,0 +1,16 @@
+{
+  "name": "Enriched Mana Sword",
+  "icon": "lawful:enriched_mana_sword",
+  "category": "lawful:weapons",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A sword made of enriched mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:enriched_mana_sword",
+      "title": "Enriched Mana Sword"
+    }
+    ]
+}

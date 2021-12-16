@@ -75,6 +75,10 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
         //
         ritualStarted = false;
         ritualStage = 0;
+        if (ritualItem.isEmpty()) {
+            LawfulMod.LOGGER.debug("Processed Empty Ritual Item");
+            return;
+        }
         CovenantPaper covenantPaper = (CovenantPaper) ritualItem.getItem();
         covenantPaper.setActive(ritualItem, true);
         covenantPaper.setCanBeActive(ritualItem);

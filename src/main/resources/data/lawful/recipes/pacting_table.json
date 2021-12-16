@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "_P_",
+    "_P_"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:red_carpet"
+    },
+    "_": {
+      "item": "minecraft:polished_blackstone_slab"
+    },
+    "P": {
+      "item": "minecraft:polished_blackstone"
+    }
+  },
+  "result": {
+    "item": "lawful:pacting_table",
+    "count": 1
+  }
+}

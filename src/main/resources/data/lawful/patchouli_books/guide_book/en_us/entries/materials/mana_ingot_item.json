@@ -1,0 +1,16 @@
+{
+  "name": "Mana Ingot",
+  "icon": "lawful:mana_ingot_item",
+  "category": "lawful:materials",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A mana infused ingot"
+    },
+    {
+      "type": "smelting",
+      "recipe": "lawful:mana_ingot_item",
+      "title": "Mana Ingot"
+    }
+    ]
+}

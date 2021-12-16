@@ -1,0 +1,16 @@
+{
+  "name": "Mana Helmet",
+  "icon": "lawful:mana_helmet",
+  "category": "lawful:armor",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Helmet made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_helmet",
+      "title": "Mana Helmet"
+    }
+    ]
+}

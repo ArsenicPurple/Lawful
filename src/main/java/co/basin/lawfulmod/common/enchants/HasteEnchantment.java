@@ -28,13 +28,26 @@ public class HasteEnchantment extends Enchantment {
     public int getMinLevel() {
         return 1;
     }
+
+    /*create an event bus to "subscribe" to - code will run every time that event triggers
+    * event triggers every ingame tick, or 20 times a second
+     */
     @Mod.EventBusSubscriber(modid = LawfulMod.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
     public static class HasteEquipped{
         @SubscribeEvent
+        /**
+         * This method will trigger once per tick to check if the player is holding an item with the Haste enchantment
+         * if so, the player will get Haste 1, or Haste 2, depending on th level of the enchantment
+         * @param event a PlayerTickEvent
+         */
         public static void doStuff(TickEvent.PlayerTickEvent event){
+            //The player who will have items checked
             PlayerEntity playerIn = event.player;
+            //Haste effect
             Effect test =  Effect.byId(3);
+            //Instance of Haste 1, lasting 1 second
             EffectInstance zoom = new EffectInstance(test,20);
+            //Instanceof Haste 2, lasting 1 second
             EffectInstance zoom2 = new EffectInstance(test, 20, 1);
 
             if(playerIn.getMainHandItem().isEnchanted()){

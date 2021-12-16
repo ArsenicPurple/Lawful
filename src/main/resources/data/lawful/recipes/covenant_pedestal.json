@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "gPg",
+    "PPP"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:polished_blackstone_pressure_plate"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "P": {
+      "item": "minecraft:polished_blackstone"
+    }
+  },
+  "result": {
+    "item": "lawful:covenant_pedestal",
+    "count": 1
+  }
+}

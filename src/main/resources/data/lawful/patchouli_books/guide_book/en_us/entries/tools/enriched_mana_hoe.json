@@ -1,0 +1,16 @@
+{
+  "name": "Enriched Mana Hoe",
+  "icon": "lawful:enriched_mana_hoe",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A hoe made of enriched mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:enriched_mana_hoe",
+      "title": "Enriched Mana Hoe"
+    }
+    ]
+}

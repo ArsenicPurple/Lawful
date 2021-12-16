@@ -16,7 +16,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-
     MANA("mana", 20, new int[] { 2, 5, 6, 2 }, 12,
             null, 1.0f, 0.0f, () -> {
         return Ingredient.of(ItemInit.MANA_INGOT.get());

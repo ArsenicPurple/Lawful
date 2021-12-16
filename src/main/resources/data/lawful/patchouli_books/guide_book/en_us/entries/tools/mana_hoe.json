@@ -1,0 +1,16 @@
+{
+  "name": "Mana Hoe",
+  "icon": "lawful:mana_hoe",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "An hoe made of mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:mana_hoe",
+      "title": "Mana Hoe"
+    }
+    ]
+}

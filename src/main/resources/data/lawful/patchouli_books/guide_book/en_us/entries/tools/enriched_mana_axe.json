@@ -1,0 +1,16 @@
+{
+  "name": "Enriched Mana Axe",
+  "icon": "lawful:enriched_mana_axe",
+  "category": "lawful:tools",
+  "pages": [
+    {
+      "type": "text",
+      "text": "An axe made of enriched mana."
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:enriched_mana_axe",
+      "title": "Enriched Mana Axe"
+    }
+    ]
+}

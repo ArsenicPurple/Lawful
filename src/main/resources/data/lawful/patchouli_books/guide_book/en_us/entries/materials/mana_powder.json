@@ -1,0 +1,16 @@
+{
+  "name": "Mana Powder",
+  "icon": "lawful:mana_powder",
+  "category": "lawful:materials",
+  "pages": [
+    {
+      "type": "text",
+      "text": "A powder infused with mana"
+    },
+    {
+      "type": "smelting",
+      "recipe": "lawful:mana_powder",
+      "title": "Mana Powder"
+    }
+    ]
+}

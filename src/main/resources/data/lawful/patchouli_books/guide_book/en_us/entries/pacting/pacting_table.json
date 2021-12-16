@@ -1,0 +1,16 @@
+{
+  "name": "Pacting Table",
+  "icon": "lawful:pacting_table",
+  "category": "lawful:pacting",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Table used for pacting"
+    },
+    {
+      "type": "crafting",
+      "recipe": "lawful:pacting_table",
+      "title": "Pacting Table"
+    }
+    ]
+}

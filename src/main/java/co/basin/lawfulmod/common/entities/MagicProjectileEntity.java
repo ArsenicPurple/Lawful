@@ -30,6 +30,7 @@ public class MagicProjectileEntity extends ProjectileItemEntity {
     private int count;
     private double speed;
     private Double random;
+    private int lifetime = 200;
 
     private Predicate<BlockRayTraceResult> blockImpactPredicate;
     private Predicate<EntityRayTraceResult> entityImpactPredicate;
@@ -58,6 +59,7 @@ public class MagicProjectileEntity extends ProjectileItemEntity {
     public MagicProjectileEntity setTickPredicate(Predicate<MagicProjectileEntity> tickPredicate) { this.tickPredicate = tickPredicate; return this; }
     public MagicProjectileEntity setEntityImpactPredicate(Predicate<EntityRayTraceResult> entityImpactPredicate) { this.entityImpactPredicate = entityImpactPredicate; return this; }
     public MagicProjectileEntity setBlockImpactPredicate(Predicate<BlockRayTraceResult> blockImpactPredicate) { this.blockImpactPredicate = blockImpactPredicate; return this; }
+    public MagicProjectileEntity setLifetime(int lifetime) { this.lifetime = lifetime; return this; }
 
     private void doStatusEffect(PlayerEntity player) {
         //statusEffect.onEvent();
@@ -104,6 +106,10 @@ public class MagicProjectileEntity extends ProjectileItemEntity {
     public void tick() {
         super.tick();
         ticks++;
+
+        if (ticks > lifetime) {
+            this.remove();
+        }
 
         if (tickPredicate != null) {
             tickPredicate.test(this);

@@ -196,6 +196,7 @@ public class MeowlzebubEntity extends MonsterEntity implements IAnimatable, IRan
         MagicProjectileEntity projectile = new MagicProjectileEntity(entity.position().add(0, 0.5, 0), this.level)
                 .setDamage(13)
                 .setParticle(ParticleTypes.CLOUD)
+                .setLifetime(100)
                 .setTickPredicate((e) -> {
                     for (int y = 0; y < 10; y++) {
                         for (Vector3d point : points) {

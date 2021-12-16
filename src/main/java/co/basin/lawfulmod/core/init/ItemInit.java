@@ -2,11 +2,9 @@ package co.basin.lawfulmod.core.init;
 
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.items.AdvancedItem;
-import co.basin.lawfulmod.common.items.BloodSoakedAxe;
 import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.common.items.ModItemTier;
 import co.basin.lawfulmod.common.items.ModArmorMaterial;
-import co.basin.lawfulmod.common.items.*;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,7 +17,7 @@ public class ItemInit {
     // Items
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item",
             () -> new Item(new Item.Properties()
-                    .tab(LawfulMod.LAWFUL_GROUP)
+                    .tab(ItemGroup.TAB_MISC)
             ));
 
     public static final RegistryObject<AdvancedItem> ADVANCED_EXAMPLE_ITEM = ITEMS.register("advanced_item",
@@ -29,12 +27,6 @@ public class ItemInit {
             ));
 
     // Tools
-    public static final RegistryObject<BloodSoakedAxe> BLOOD_SOAKED_AXE = ITEMS.register("blood_soaked_axe",
-            () -> new BloodSoakedAxe(ItemTier.NETHERITE, 3, -2.4F, (new Item.Properties())
-                    .tab(LawfulMod.LAWFUL_GROUP)
-                    .fireResistant()
-            ));
-
     public static final RegistryObject<SwordItem> ENRICHED_MANA_SWORD = ITEMS.register("enriched_mana_sword",
             () -> new SwordItem(ModItemTier.EnrichedMana, 2, 0F,
                     new Item.Properties().tab(LawfulMod.LAWFUL_GROUP)));

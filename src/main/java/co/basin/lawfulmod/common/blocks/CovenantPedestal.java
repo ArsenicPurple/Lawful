@@ -1,6 +1,5 @@
 package co.basin.lawfulmod.common.blocks;
 
-import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.common.tileentities.CovenantPedestalTileEntity;
 import net.minecraft.block.Block;
@@ -44,13 +43,12 @@ public class CovenantPedestal extends Block {
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult result) {
         TileEntity tileEntity = world.getBlockEntity(pos);
         if (tileEntity instanceof CovenantPedestalTileEntity) {
-            ItemStack stack;
-            if (!(stack = ((CovenantPedestalTileEntity) tileEntity).getRitualItem()).isEmpty()) {
+            ItemStack stack = ((CovenantPedestalTileEntity) tileEntity).getRitualItem();
+            if (stack != null && !stack.isEmpty()) {
                 player.inventory.add(stack);
-                ((CovenantPedestalTileEntity) tileEntity).setRitualItem(stack);
+                ((CovenantPedestalTileEntity) tileEntity).setRitualItem(ItemStack.EMPTY);
                 return ActionResultType.CONSUME;
             }
-            LawfulMod.LOGGER.debug("There is no Ritual Item in the pedestal");
         }
 
         if (world.isClientSide()) {
@@ -66,9 +64,15 @@ public class CovenantPedestal extends Block {
             ItemStack stack = ((ItemEntity) entity).getItem();
             if (stack.getItem() instanceof AirItem || stack.isEmpty()) { return; }
             if (stack.getItem() instanceof CovenantPaper) {
-                CovenantPaper paper = ((CovenantPaper) stack.getItem());
+                CovenantPaper paper;
+                try {
+                    paper = ((CovenantPaper) stack.getItem());
+                } catch (ClassCastException e) {
+                    e.printStackTrace();
+                    return;
+                }
 
-                if (paper.getIsActive(stack)) {
+                if (paper.isActive(stack)) {
                     super.updateEntityAfterFallOn(reader, entity);
                     return;
                 }

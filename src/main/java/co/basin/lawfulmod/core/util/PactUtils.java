@@ -1,5 +1,6 @@
 package co.basin.lawfulmod.core.util;
 
+import co.basin.lawfulmod.common.items.CovenantPaper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
@@ -20,17 +21,17 @@ public class PactUtils {
         return -1;
     }
 
-    public static boolean testForType(ItemStack stack, int type) {
-        return stack != null && !stack.isEmpty() && pactPredicates.get(type).test(stack);
+    public static boolean isItemBreakingCovenant(ItemStack stack, int type) {
+        return stack != null && !stack.isEmpty() && stack.getItem() instanceof CovenantPaper && pactPredicates.get(type).test(stack);
     }
 
     public static EffectInstance[] getPactEffects(int type) {
         switch (type) {
-            case 0: return new EffectInstance[] { new EffectInstance(Effects.MOVEMENT_SPEED, 6), new EffectInstance(Effects.JUMP, 2) };
-            case 1: return new EffectInstance[] { new EffectInstance(Effects.DAMAGE_BOOST, 5) };
-            case 2: return new EffectInstance[] { new EffectInstance(Effects.HERO_OF_THE_VILLAGE, 20) };
-            case 3: return new EffectInstance[] { new EffectInstance(Effects.DAMAGE_RESISTANCE, 255) };
-            case 4: return new EffectInstance[] { new EffectInstance(Effects.HEALTH_BOOST, 10) };
+            case 0: return new EffectInstance[] { new EffectInstance(Effects.MOVEMENT_SPEED, 200, 6), new EffectInstance(Effects.JUMP, 200, 2) };
+            case 1: return new EffectInstance[] { new EffectInstance(Effects.DAMAGE_BOOST, 200, 5) };
+            case 2: return new EffectInstance[] { new EffectInstance(Effects.HERO_OF_THE_VILLAGE, 200, 20) };
+            case 3: return new EffectInstance[] { new EffectInstance(Effects.DAMAGE_RESISTANCE, 200, 255) };
+            case 4: return new EffectInstance[] { new EffectInstance(Effects.HEALTH_BOOST, 200, 10) };
             default: return null;
         }
     }

@@ -3,6 +3,7 @@ package co.basin.lawfulmod.common.items;
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.core.init.ItemInit;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;

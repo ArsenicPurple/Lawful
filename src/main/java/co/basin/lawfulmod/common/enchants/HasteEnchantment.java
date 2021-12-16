@@ -15,8 +15,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 public class HasteEnchantment extends Enchantment {
 
-    public HasteEnchantment(Rarity p_i46731_1_, EnchantmentType p_i46731_2_, EquipmentSlotType[] p_i46731_3_) {
-        super(p_i46731_1_, p_i46731_2_, p_i46731_3_);
+    public HasteEnchantment(Rarity rarity, EnchantmentType type, EquipmentSlotType[] slotTypes) {
+        super(rarity, type, slotTypes);
     }
 
     @Override
@@ -29,35 +29,32 @@ public class HasteEnchantment extends Enchantment {
         return 1;
     }
 
-    /*create an event bus to "subscribe" to - code will run every time that event triggers
-    * event triggers every ingame tick, or 20 times a second
+    /* Create an event bus to "subscribe" to - Code will run every time that event triggers
+     * Event triggers every in-game tick, or 20 times a second
      */
     @Mod.EventBusSubscriber(modid = LawfulMod.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
-    public static class HasteEquipped{
+    public static class HasteEquipped {
+        private static long lastTick;
+
         @SubscribeEvent
         /**
-         * This method will trigger once per tick to check if the player is holding an item with the Haste enchantment
-         * if so, the player will get Haste 1, or Haste 2, depending on th level of the enchantment
+         * This method will trigger once per 40 ticks to check if the player is holding an item with the Haste enchantment
+         * if so, the player will get Haste 1, or Haste 2, depending on the level of the enchantment
          * @param event a PlayerTickEvent
          */
-        public static void doStuff(TickEvent.PlayerTickEvent event){
+        public static void tickEnchantment(TickEvent.PlayerTickEvent event) {
+            if (event.player.level.getGameTime() - lastTick < 40) { return; }
+            lastTick = event.player.level.getGameTime();
+
             //The player who will have items checked
             PlayerEntity playerIn = event.player;
-            //Haste effect
-            Effect test =  Effect.byId(3);
-            //Instance of Haste 1, lasting 1 second
-            EffectInstance zoom = new EffectInstance(test,20);
-            //Instanceof Haste 2, lasting 1 second
-            EffectInstance zoom2 = new EffectInstance(test, 20, 1);
+            //Haste effect ID
+            Effect hasteId = Effect.byId(3);
 
-            if(playerIn.getMainHandItem().isEnchanted()){
-                if(EnchantmentHelper.getEnchantmentLevel(EnchantmentInit.HASTE.get(),playerIn) == 1) {
-                    playerIn.addEffect(zoom);
-                }
-                else if(EnchantmentHelper.getEnchantmentLevel(EnchantmentInit.HASTE.get(),playerIn) == 2){
-                playerIn.addEffect(zoom2);
-                }
-            }
+            int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentInit.HASTE.get(),playerIn) - 1;
+            if (level < 0) { return; }
+            assert hasteId != null;
+            playerIn.addEffect(new EffectInstance(hasteId, 60, level));
         }
     }
 }

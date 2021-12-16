@@ -12,9 +12,9 @@
       "text": "The setup for the covenant pedestal",
         "multiblock": {
         "pattern": [
+          ["A   A", "     ", "     ", "     ", "A   A"],
           ["C   C", "     ", "     ", "     ", "C   C"],
-          ["C   C", "     ", "     ", "     ", "C   C"],
-          ["A   A", "     ", "  0  ", "     ", "A   A"]
+          ["C   C", "     ", "  0  ", "     ", "C   C"]
         ],
           "mapping": {
             "C": "minecraft:crying_obsidian",

@@ -4,6 +4,7 @@ import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.common.entities.LukkiEntity;
 import co.basin.lawfulmod.common.entities.MagicProjectileEntity;
 import co.basin.lawfulmod.common.entities.MeowlzebubEntity;
+import co.basin.lawfulmod.common.entities.TranscendenceProjectileEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -31,5 +32,11 @@ public class EntityTypeInit {
             () -> EntityType.Builder.<MagicProjectileEntity>of(MagicProjectileEntity::new, EntityClassification.MISC)
                     .sized(0.25F, 0.25F)
                     .build("magic_projectile")
+    );
+
+    public static final RegistryObject<EntityType<TranscendenceProjectileEntity>> TRANSCENDENCE_ENTITY = ENTITY_TYPES.register("transcendence_projectile",
+            () -> EntityType.Builder.<TranscendenceProjectileEntity>of(TranscendenceProjectileEntity::new, EntityClassification.MISC)
+                    .sized(1, 1)
+                    .build("transcendence_projectile")
     );
 }

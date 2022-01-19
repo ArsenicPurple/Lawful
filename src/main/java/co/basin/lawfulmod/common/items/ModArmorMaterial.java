@@ -3,15 +3,12 @@ package co.basin.lawfulmod.common.items;
 import co.basin.lawfulmod.LawfulMod;
 import co.basin.lawfulmod.core.init.ItemInit;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-
 
 import java.util.function.Supplier;
 

@@ -3,6 +3,7 @@ package co.basin.lawfulmod.common.blocks;
 import co.basin.lawfulmod.common.items.CovenantPaper;
 import co.basin.lawfulmod.common.tileentities.CovenantPedestalTileEntity;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
@@ -102,5 +103,10 @@ public class CovenantPedestal extends Block {
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new CovenantPedestalTileEntity();
+    }
+
+    @Override
+    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
+        return BlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 }

@@ -15,8 +15,16 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.server.ServerWorld;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class CovenantPedestalTileEntity extends TileEntity implements ITickableTileEntity {
+public class CovenantPedestalTileEntity extends TileEntity implements ITickableTileEntity, IAnimatable {
+    private AnimationFactory factory = new AnimationFactory(this);
     public static final String TAG_RITUAL_ITEM = "ritualItem";
     private ItemStack ritualItem = null;
 
@@ -95,7 +103,7 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
     public void setRitualItem(ItemStack ritualItem) {
         this.ritualItem = ritualItem;
 
-        if (ritualBlocksAreValid()) {
+        if (ritualBlocksAreValid() && ritualItemIsValid()) {
             startRitual();
         }
     }
@@ -129,5 +137,28 @@ public class CovenantPedestalTileEntity extends TileEntity implements ITickableT
             return true;
         }
         return false;
+    }
+
+    private boolean ritualItemIsValid() {
+        return this.ritualItem != null && !this.ritualItem.isEmpty() && this.ritualItem.getItem() instanceof CovenantPaper && !((CovenantPaper) this.ritualItem.getItem()).isTogglable(this.ritualItem);
+    }
+
+    private <E extends IAnimatable> PlayState ritualPredicate(AnimationEvent<E> event) {
+        if (isRitualStarted()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("ritual", true));
+        }
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("default", false));
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public void registerControllers(AnimationData data)
+    {
+        data.addAnimationController(new AnimationController(this, "ritual", 2, this::ritualPredicate));
+    }
+
+    @Override
+    public AnimationFactory getFactory() {
+        return this.factory;
     }
 }

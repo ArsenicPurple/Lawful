@@ -1,6 +1,5 @@
 package co.basin.lawfulmod.core.util;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particles.BasicParticleType;
 import net.minecraft.world.server.ServerWorld;

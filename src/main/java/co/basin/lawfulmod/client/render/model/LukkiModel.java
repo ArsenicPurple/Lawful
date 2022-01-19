@@ -22,6 +22,6 @@ public class LukkiModel extends AnimatedGeoModel<LukkiEntity>
 	@Override
 	public ResourceLocation getAnimationFileLocation(LukkiEntity object)
 	{
-		return new ResourceLocation(LawfulMod.MOD_ID, "animations/animation.meowlzebub.json");
+		return new ResourceLocation(LawfulMod.MOD_ID, "animations/animation.lukki.json");
 	}
 }

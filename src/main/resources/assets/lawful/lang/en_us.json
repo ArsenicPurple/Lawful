@@ -1,63 +1,21 @@
 {
-  "item.lawful.example_item": "The Best Example Item",
-
-  "block.lawful.pacting_table": "Pacting Table",
-
-  "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
-
-  "item.lawful.mana_ingot_item": "Mana Ingot",
-
-  "block.lawful.mana_wood": "Mana Wood",
-
-  "block.lawful.mana_iron_ore": "Mana Iron Ore",
-
-  "title.lawful.pacting_table": "Pacting Table",
-
-  "death.attack.lawful.broken_covenant": "%1$s has broken their covenant",
-
-  "tooltip.lawful.unbound": "Bound to \u00A76Unknown",
-  
-  "tooltip.lawful.bound_to": "Bound to \u00A76%s",
-
-  "block.lawful.enriched_mana_ore": "Enriched Mana Ore",
-
-  "item.lawful.enriched_mana_sword":  "Enriched Mana Sword",
-
-  "item.lawful.enriched_mana_axe":  "Enriched Mana Axe",
-
-  "item.lawful.enriched_mana_shovel":  "Enriched Mana Shovel",
-
-  "item.lawful.enriched_mana_pickaxe":  "Enriched Mana Pickaxe",
-
-  "item.lawful.enriched_mana_hoe":  "Enriched Mana Hoe",
-
-  "item.lawful.mana_powder": "Mana Powder",
-
-  "item.lawful.enriched_mana_ingot": "Enriched Mana Ingot",
-
-  "item.lawful.mana_pickaxe": "Mana Pickaxe",
-
-  "item.lawful.mana_axe": "Mana Axe",
-
-  "item.lawful.mana_shovel": "Mana Shovel",
-
-  "item.lawful.mana_hoe": "Mana Hoe",
-
-  "item.lawful.mana_sword": "Mana Sword",
-
   "itemGroup.lawfultab": "Lawful",
 
+  "item.lawful.example_item": "The Best Example Item",
+  "item.lawful.mana_ingot_item": "Mana Ingot",
+  "item.lawful.enriched_mana_sword":  "Enriched Mana Sword",
+  "item.lawful.enriched_mana_axe":  "Enriched Mana Axe",
+  "item.lawful.enriched_mana_shovel":  "Enriched Mana Shovel",
+  "item.lawful.enriched_mana_pickaxe":  "Enriched Mana Pickaxe",
+  "item.lawful.enriched_mana_hoe":  "Enriched Mana Hoe",
+  "item.lawful.mana_powder": "Mana Powder",
+  "item.lawful.enriched_mana_ingot": "Enriched Mana Ingot",
+  "item.lawful.mana_pickaxe": "Mana Pickaxe",
+  "item.lawful.mana_axe": "Mana Axe",
+  "item.lawful.mana_shovel": "Mana Shovel",
+  "item.lawful.mana_hoe": "Mana Hoe",
+  "item.lawful.mana_sword": "Mana Sword",
   "item.lawful.covenant_paper": "Covenant Paper",
-
-  "covenant.lawful.movement": "Covenant of Movement",
-  "covenant.lawful.damage": "Covenant of Damage",
-  "covenant.lawful.haggling": "Covenant of Swindling",
-  "covenant.lawful.immortality": "Covenant of Immortality",
-  "covenant.lawful.vitality": "Covenant of Vitality",
-
-  "enchantment.lawful.haste": "Haste",
-  "enchantment.lawful.regen": "Regen",
-
   "item.minecraft.potion.effect.super_strength": "Potion of Super Strength",
   "item.minecraft.potion.effect.long_super_strength": "Potion of Super Strength",
   "item.minecraft.splash_potion.effect.super_strength": "Splash Potion of Super Strength",
@@ -66,7 +24,6 @@
   "item.minecraft.lingering_potion.effect.long_super_strength": "Lingering Potion of Super Strength",
   "item.minecraft.tipped_arrow.effect.super_strength": "Arrow of Super Strength",
   "item.minecraft.tipped_arrow.effect.long_super_strength": "Arrow of Super Strength",
-
   "item.minecraft.potion.effect.nausea": "Potion of Nausea",
   "item.minecraft.potion.effect.useful_nausea": "Potion of Nauseous Luck",
   "item.minecraft.splash_potion.effect.nausea": "Splash Potion of Nausea",
@@ -74,6 +31,27 @@
   "item.minecraft.lingering_potion.effect.nausea": "Lingering Potion of Nausea",
   "item.minecraft.lingering_potion.effect.useful_nausea": "Lingering Nauseous Luck",
   "item.minecraft.tipped_arrow.effect.nausea": "Arrow of Nausea",
-  
-  "item.minecraft.tipped_arrow.effect.useful_nausea": "Arrow of Nauseous Luck"
+  "item.minecraft.tipped_arrow.effect.useful_nausea": "Arrow of Nauseous Luck",
+
+  "block.lawful.pacting_table": "Pacting Table",
+  "block.lawful.mana_wood": "Mana Wood",
+  "block.lawful.mana_iron_ore": "Mana Iron Ore",
+  "block.lawful.enriched_mana_ore": "Enriched Mana Ore",
+
+  "tooltip.lawful.advanced_item": "[Warning] Very Advanced",
+  "tooltip.lawful.unbound": "Bound to \u00A76Unknown",
+  "tooltip.lawful.bound_to": "Bound to \u00A76%s",
+
+  "enchantment.lawful.haste": "Haste",
+  "enchantment.lawful.regen": "Regen",
+
+  "covenant.lawful.movement": "Covenant of Movement",
+  "covenant.lawful.damage": "Covenant of Damage",
+  "covenant.lawful.haggling": "Covenant of Swindling",
+  "covenant.lawful.immortality": "Covenant of Immortality",
+  "covenant.lawful.vitality": "Covenant of Vitality",
+
+  "title.lawful.pacting_table": "Pacting Table",
+
+  "death.attack.lawful.broken_covenant": "%1$s has broken their covenant"
 }

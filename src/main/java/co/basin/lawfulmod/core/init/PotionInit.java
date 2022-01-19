@@ -32,7 +32,7 @@ public class PotionInit {
             ));
 
 
-    public static void addPotionRecipes(){
+    public static void addPotionRecipes() {
         BrewingRecipeRegistry.addRecipe(new NewBrewingRecipe(Potions.STRONG_STRENGTH, Items.MYCELIUM, PotionInit.SUPER_STRENGTH.get()));
         BrewingRecipeRegistry.addRecipe(new NewBrewingRecipe(PotionInit.SUPER_STRENGTH.get(), Items.REDSTONE, PotionInit.LONG_SUPER_STRENGTH.get()));
         BrewingRecipeRegistry.addRecipe(new NewBrewingRecipe(Potions.AWKWARD, Items.PUFFERFISH, PotionInit.NAUSEA.get()));

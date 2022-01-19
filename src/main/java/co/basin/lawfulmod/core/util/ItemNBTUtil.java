@@ -134,7 +134,7 @@ public final class ItemNBTUtil {
 
     @Nullable
     public static UUID getUuid(ItemStack stack, String tag) {
-        return verifyExistance(stack, tag + "Most") && verifyExistance(stack, tag + "Least") ? stack.getOrCreateTag().getUUID(tag) : null;
+        return verifyExistance(stack, tag) ? stack.getOrCreateTag().getUUID(tag) : null;
     }
 
     public static ListNBT getList(ItemStack stack, String tag, int objtype, boolean nullifyOnFail) {

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"default": {
+			"loop": true,
+			"bones": {
+				"CircleBottom": {
+					"scale": {
+						"vector": [0, 1, 0]
+					}
+				}
+			}
+		},
+		"ritual": {
+			"loop": true,
+			"bones": {
+				"CircleBottom": {
+					"scale": {
+						"vector": [48, 1, 48]
+					},
+					"rotation": {
+						"vector": [0, "query.anim_time * 125", 0]
+					}
+				}
+			}
+		}
+	}
+}

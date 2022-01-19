@@ -1,13 +1,10 @@
 package co.basin.lawfulmod.common.items;
 
-import co.basin.lawfulmod.LawfulMod;
-import co.basin.lawfulmod.common.items.AdvancedItem;
 import co.basin.lawfulmod.core.init.ItemInit;
-import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
+
 import java.util.function.Supplier;
 
 /**

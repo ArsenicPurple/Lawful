@@ -1,9 +1,11 @@
 package co.basin.lawfulmod.core.events;
 
 import co.basin.lawfulmod.LawfulMod;
+import co.basin.lawfulmod.client.guis.EmbossmentTableScreen;
 import co.basin.lawfulmod.client.guis.PactingTableScreen;
 import co.basin.lawfulmod.client.render.entity.LukkiRenderer;
 import co.basin.lawfulmod.client.render.entity.MeowlzebubRenderer;
+import co.basin.lawfulmod.client.render.entity.TranscendenceProjectileRenderer;
 import co.basin.lawfulmod.client.render.tileentitiy.CovenantPedestalTileEntityRenderer;
 import co.basin.lawfulmod.core.init.ContainerTypeInit;
 import co.basin.lawfulmod.core.init.EntityTypeInit;
@@ -24,7 +26,9 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         ScreenManager.register(ContainerTypeInit.PACTING_TABLE.get(), PactingTableScreen::new);
+        ScreenManager.register(ContainerTypeInit.EMBOSSMENT_TABLE.get(), EmbossmentTableScreen::new);
 
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypeInit.TRANSCENDENCE_ENTITY.get(), TranscendenceProjectileRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypeInit.MEOWLZEBUB.get(), MeowlzebubRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypeInit.LUKKI.get(), LukkiRenderer::new);
 

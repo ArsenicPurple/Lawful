@@ -2,10 +2,8 @@ package co.basin.lawfulmod.common.items;
 
 import co.basin.lawfulmod.core.util.ItemNBTUtil;
 import co.basin.lawfulmod.core.util.PactUtils;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.ActionResult;
@@ -14,18 +12,37 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
 /**
  * TODO
  * BUGLIST
- * Crash on use when hand is empty and pedestal is empty ✔
- * Paper doesn't apply effects when pact is active ✔
- * Toggling paper effects doesn't work ✔
- * Paper doesn't display the proper soulbound information ✔
+ * Health Boost pacting effect doesn't work properly
+ * Sharpness -> Serrated ✔
+ * Bane of Arthropods -> Leech ✔
+ * Fire Aspect -> Blazing ✔
+ * Efficiency -> Momentum ✔
+ * Knockback -> Trapper ✔
+ * Smite -> Judgement
+ * Looting -> Scavenger
+ * Sweeping Edge -> Transendance ✔
+ * Unbreaking -> Resiliance
+ * Fortune ->
+ * Silk Touch ->
+ * Power -> Chaining
+ * Flame -> Combustion
+ * Punch -> Launching
+ * Infinity -> Materialize
+ * Mending ->
+ * Loyalty ->
+ * Channeling ->
+ * Riptide ->
+ * Impaling ->
+ * Multishot ->
+ * Piercing -> Concentration
+ * Quick Charge ->
+ * Projectile Protection -> Phasing
  *
- * UPDATES
+ * UPDATES - Not Ordered
+ * Embossments
  * Finish Meowlzebub Animations and AI
  * Change Animation When a Ritual Finished
  * Add Advancements

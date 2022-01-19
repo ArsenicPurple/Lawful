@@ -1,11 +1,11 @@
 package co.basin.lawfulmod.common.goals;
 
-import java.util.EnumSet;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.util.math.vector.Vector3d;
+
+import java.util.EnumSet;
 
 public class RangedMagicAttackGoal<T extends MonsterEntity & IRangedAttackMob> extends Goal {
     private final T mob;

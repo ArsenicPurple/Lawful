@@ -41,16 +41,15 @@ public class LawfulMod
 
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
+        EffectInit.EFFECTS.register(bus);
         PotionInit.POTIONS.register(bus);
+        EntityTypeInit.ENTITY_TYPES.register(bus);
         EnchantmentInit.ENCHANTMENTS.register(bus);
-
-        //makes the ore generate
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
-
         ContainerTypeInit.CONTAINER_TYPES.register(bus);
         TileEntityTypeInit.TILE_ENTITY_TYPES.register(bus);
-        EntityTypeInit.ENTITY_TYPES.register(bus);
 
+        //makes the ores generate
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

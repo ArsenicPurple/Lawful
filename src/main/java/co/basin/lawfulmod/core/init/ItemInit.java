@@ -1,10 +1,7 @@
 package co.basin.lawfulmod.core.init;
 
 import co.basin.lawfulmod.LawfulMod;
-import co.basin.lawfulmod.common.items.AdvancedItem;
-import co.basin.lawfulmod.common.items.CovenantPaper;
-import co.basin.lawfulmod.common.items.ModItemTier;
-import co.basin.lawfulmod.common.items.ModArmorMaterial;
+import co.basin.lawfulmod.common.items.*;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -24,6 +21,11 @@ public class ItemInit {
             () -> new AdvancedItem(new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
                     .food(Foods.CARROT)
+            ));
+
+    public static final RegistryObject<JoeItem> JOE_ITEM = ITEMS.register("joe_item",
+            () -> new JoeItem(new Item.Properties()
+                    .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
     // Tools
@@ -114,6 +116,11 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> COVENANT_PEDESTAL = ITEMS.register("covenant_pedestal",
             () -> new BlockItem(BlockInit.COVENANT_PEDESTAL.get(), new Item.Properties()
+                    .tab(LawfulMod.LAWFUL_GROUP)
+            ));
+
+    public static final  RegistryObject<BlockItem> EMBOSSMENT_TABLE = ITEMS.register("embossment_table",
+            () ->  new BlockItem(BlockInit.EMBOSSMENT_TABLE.get(), new Item.Properties()
                     .tab(LawfulMod.LAWFUL_GROUP)
             ));
 
